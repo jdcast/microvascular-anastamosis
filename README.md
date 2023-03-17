@@ -15,7 +15,9 @@ RSP Final Project
 - `form Pull Request (PR) in github`
 - `await others to review`
 - `merge PR into main`
-- if further work on <branch_name> needs to be done after merging its PR into `main`: (let's not do merging/rebasing to save possible headaches...https://stackoverflow.com/questions/3876977/update-git-branches-from-master)
-  - cut new branch from `main`: 
+- if further work on <branch_name> needs to be done after merging its PR into `main`: (let's not use `git rebase` to save possible headaches...https://stackoverflow.com/questions/3876977/update-git-branches-from-master)
   - `git checkout main`
-  - `git checkout -B features/<new_branch_name>`
+  - `git pull` # update local master from remote master
+  - `git checkout feature/<branch_name>`
+  - `git merge master` # solve merge conflicts if you have
+  - `git push`
