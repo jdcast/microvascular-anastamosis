@@ -22,7 +22,7 @@ RSP Final Project
     - `sudo cp x64/release/lib/shared/libReflexxesTypeII.so /usr/local/lib/`
     - `sudo cp ../include/* /usr/local/include/`
 
-## Updating after commit: https://github.com/jdcast/rsp-final-project/commit/a74f598e87c174add4e3216217bd5e41983b91d4
+## Updating if installed repository before commit: https://github.com/jdcast/rsp-final-project/commit/a74f598e87c174add4e3216217bd5e41983b91d4
 - `git pull`
 - `git submodule update --init --recursive`
 
