@@ -6,7 +6,7 @@ RSP Final Project
 - `cd rsp_fp_ws/src`
 - `git clone --recurse-submodules git@github.com:jdcast/rsp-final-project.git`
 
-## Updating after commit: 
+## Updating after commit: https://github.com/jdcast/rsp-final-project/commit/a74f598e87c174add4e3216217bd5e41983b91d4
 - `git pull`
 - `git submodule update --init --recursive`
 
