@@ -4,7 +4,11 @@ RSP Final Project
 ## Installation
 - `mkdir -p rsp_fp_ws/src`
 - `cd rsp_fp_ws/src`
-- `git clone git@github.com:jdcast/rsp-final-project.git`
+- `git clone --recurse-submodules git@github.com:jdcast/rsp-final-project.git`
+
+## Updating after commit: 
+- `git pull`
+- `git submodule update --init --recursive`
 
 ## Workflow
 - `git checkout <branch_name>`
