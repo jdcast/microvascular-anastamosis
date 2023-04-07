@@ -5,6 +5,22 @@ RSP Final Project
 - `mkdir -p rsp_fp_ws/src`
 - `cd rsp_fp_ws/src`
 - `git clone --recurse-submodules git@github.com:jdcast/rsp-final-project.git`
+- Build Orocos toolchain by itself 
+  - colcon build --packages-select orocos_toolchain
+  - source install/setup.bash
+- Build the rest
+  - colcon build
+- Build Reflexxes library.
+  - Download and extract Reflexxes in some directory, say:
+    - `mkdir -p ~/src/reflexxes`
+    - `unzip ~/Downloads/ReflexxesTypeII.zip -d ~/src/reflexxes/`
+    - `cd ~/src/reflexxes/ReflexxesTypeII/Linux`
+  - Patch makefile and run Make
+    - `sed -i s/ddb/gdb/ Makefile.global`
+    - `make all64`
+  - Copy header files and library
+    - `sudo cp x64/release/lib/shared/libReflexxesTypeII.so /usr/local/lib/`
+    - `sudo cp ../include/* /usr/local/include/`
 
 ## Updating after commit: https://github.com/jdcast/rsp-final-project/commit/a74f598e87c174add4e3216217bd5e41983b91d4
 - `git pull`
