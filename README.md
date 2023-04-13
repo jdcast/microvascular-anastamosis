@@ -39,5 +39,5 @@ RSP Final Project
   - `git checkout main`
   - `git pull` # update local main from remote main
   - `git checkout feature/<branch_name>`
-  - `git merge master` # solve merge conflicts if you have
+  - `git merge main` # solve merge conflicts if you have
   - `git push`
