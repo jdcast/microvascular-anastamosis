@@ -1,0 +1,74 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="hc_sr04">
+
+  <xacro:macro name="hc_sr04" params="name id parent *origin">
+    
+    <link name="sonar_link_${id}">
+      <visual>
+        <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
+        <geometry>
+          <mesh filename="file://$(find edumip_description)/meshes/HC-SR04.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="red">
+          <color rgba="1.0 0.0 0.0 0.5"/>
+        </material>
+      </visual>
+      <!--
+      <collision>
+        <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
+        <geometry>
+          <mesh filename="file://$(find edumip_description)/meshes/HC-SR04.stl" scale="0.001 0.001 0.001"/>
+        </geometry>
+        <material name="red">
+          <color rgba="1.0 0.0 0.0 0.5"/>
+        </material>
+      </collision>
+      -->
+    </link>
+    
+    <joint name="sonar_joint_${id}" type="fixed">
+      <parent link="${parent}"/>
+      <child link="sonar_link_${id}"/>
+      <xacro:insert_block name="origin"/>
+    </joint>
+
+    <gazebo>
+      <plugin filename="libignition-gazebo-joint-state-publisher-system.so"
+              name="ignition::gazebo::systems::JointStatePublisher">
+      </plugin>
+    </gazebo>
+
+    <gazebo reference="sonar_link_${id}">
+      <sensor type="gpu_lidar" name="${name}">
+        <update_rate>40.0</update_rate> 
+        <always_on>1</always_on>
+        <topic>sonar</topic>
+        <visualize>1</visualize>
+        <ignition_frame_id>sonar_link_${id}</ignition_frame_id>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>15</samples>
+              <resolution>1.0</resolution>
+              <min_angle>-0.1309</min_angle>
+              <max_angle>0.1309</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>15</samples>
+              <resolution>1.0</resolution>
+              <min_angle>-0.1309</min_angle>
+              <max_angle>0.1309</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.02</min>
+            <max>4.0</max>
+          </range>
+        </ray>
+        <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
+        </plugin>
+      </sensor>
+    </gazebo>
+    
+  </xacro:macro>
+  
+</robot>

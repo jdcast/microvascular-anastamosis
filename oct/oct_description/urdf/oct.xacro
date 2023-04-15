@@ -1,0 +1,14 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="oct">
+  <xacro:include filename="$(find edumip_description)/urdf/hc_sr04.xacro" />
+
+  <xacro:macro name="oct" params="parent *origin">
+    <xacro:hc_sr04 name="oct_tissue" id="tissue" parent="${parent}">
+      <xacro:insert_block name="${origin}"/>
+    </xacro:hc_sr04>
+    
+    <xacro:hc_sr04 name="oct_nitinol" id="nitinol" parent="${parent}">
+      <xacro:insert_block name="${origin}"/>
+    </xacro:hc_sr04>
+  </xacro:macro>
+
+</robot>
