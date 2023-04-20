@@ -1,23 +1,20 @@
 <launch>
-  <let name="edumip_urdf_xacro" value="$(find-pkg-share edumip_description)/urdf/edumip.urdf.xacro"/>
-  <let name="edumip_description" value="$(command 'xacro $(var edumip_urdf_xacro)')"/>
+  <let name="oct_urdf_xacro" value="$(find-pkg-share oct_description)/urdf/oct.urdf.xacro"/>
+  <let name="oct_description" value="$(command 'xacro $(var oct_urdf_xacro)')"/>
   
   <!-- testing code -->
-  <!--
-  <let name="rviz_config" value="$(find-pkg-share edumip_description)/config/rviz.rviz"/>
-  -->
+  <let name="rviz_config" value="$(find-pkg-share oct_description)/config/rviz.rviz"/>
 
   <node
     pkg="robot_state_publisher"
     exec="robot_state_publisher"
     name="robot_state_publisher"
     output="screen">
-    <param name="robot_description" value="$(var edumip_description)"/>
-    <remap from="/joint_states" to="/world/empty/model/edumip/joint_state"/>
+    <param name="robot_description" value="$(var oct_description)"/>
+    <remap from="/joint_states" to="/world/empty/model/oct/joint_state"/>
   </node>
   
   <!-- testing code -->
-  <!--
   <node
     pkg="joint_state_publisher_gui"
     exec="joint_state_publisher_gui"
@@ -25,15 +22,12 @@
     output="screen">
     <remap from="/joint_states" to="/world/empty/model/RSP/joint_state"/>
   </node>
-  -->
 
-  <!--
   <node 
     pkg="rviz2"
     exec="rviz2"
     name="rviz2"
-    args="-d $(var rviz_config) -f base_link">
+    args="-d $(var rviz_config) -f world">
   </node>
-  -->
 
 </launch>

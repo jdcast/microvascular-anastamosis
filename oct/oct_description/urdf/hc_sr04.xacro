@@ -6,7 +6,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
         <geometry>
-          <mesh filename="file://$(find edumip_description)/meshes/HC-SR04.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find oct_description)/meshes/HC-SR04.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="red">
           <color rgba="1.0 0.0 0.0 0.5"/>
@@ -16,7 +16,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
         <geometry>
-          <mesh filename="file://$(find edumip_description)/meshes/HC-SR04.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find oct_description)/meshes/HC-SR04.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="red">
           <color rgba="1.0 0.0 0.0 0.5"/>

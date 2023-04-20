@@ -1,8 +1,10 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="oct_test">
   <xacro:include filename="$(find oct_description)/urdf/oct.xacro" />
 
-  <xacro:oct_test name="oct" parent="world_link">
+  <link name="world" />
+
+  <xacro:oct parent="world">
     <origin xyz="0 0 0.1" rpy="0 0 0"/>
-  </xacro:oct_test>
+  </xacro:oct>
   
 </robot>

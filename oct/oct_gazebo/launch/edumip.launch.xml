@@ -1,0 +1,93 @@
+<launch>
+  <!-- hw5
+  <let name="rviz_config" value="$(find-pkg-share oct_gazebo)/config/rviz.rviz"/>
+  -->
+
+  <!-- hw6 -->
+  <let name="rviz_config" value="$(find-pkg-share oct_gazebo)/config/rviz_hw6.rviz"/>
+  <let name="oct_offset_z" value="0.0"/>
+
+  <let name="gazebo_world" value="$(find-pkg-share oct_gazebo)/worlds/oct.world.sdf"/>
+  <let name="oct_urdf_xacro" value="$(find-pkg-share oct_description)/urdf/oct.urdf.xacro"/>
+  <let name="oct_urdf" value="$(command 'xacro $(var oct_urdf_xacro)')"/>
+  <let name="oct_plugin_path" 
+    value="$(find-pkg-prefix oct_plugin)"/>
+
+  <set_env name="IGN_GAZEBO_SYSTEM_PLUGIN_PATH" 
+    value="$(var oct_plugin_path)/lib"/>
+  
+  <include file="$(find-pkg-share oct_description)/launch/oct_startup.launch.xml"/>
+  
+  <executable 
+    cmd="ign gazebo $(var gazebo_world) -v 4"
+    cwd="."
+    launch-prefix=""
+    output="screen"/>
+
+  <node 
+    pkg="ros_ign_gazebo"
+    exec="create"
+    args="-world empty -string $(var oct_urdf) -v 4 -z $(var oct_offset_z)">
+  </node>
+  
+  <node 
+    pkg="ros_ign_bridge"
+    exec="parameter_bridge"
+    args="/world/empty/model/oct/joint_state@sensor_msgs/msg/JointState[ignition.msgs.Model"
+    output="screen">
+  </node>
+  
+  <node 
+    pkg="ros_ign_bridge"
+    exec="parameter_bridge"
+    args="/sonar@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan"
+    output="screen">
+  </node>
+  
+  <node 
+    pkg="ros_ign_bridge"
+    exec="parameter_bridge"
+    args="/model/oct/cmd_vel@geometry_msgs/msg/Twist@ignition.msgs.Twist"
+    output="screen">
+  </node>
+  
+  <node 
+    pkg="ros_ign_bridge"
+    exec="parameter_bridge"
+    args="/oct/p1@geometry_msgs/msg/PoseStamped@ignition.msgs.Pose"
+    output="screen">
+  </node>
+  
+  <node 
+    pkg="ros_ign_bridge"
+    exec="parameter_bridge"
+    args="/oct/p2@geometry_msgs/msg/PoseStamped@ignition.msgs.Pose"
+    output="screen">
+  </node>
+  
+  <!-- hw5
+  <node 
+    pkg="rviz2"
+    exec="rviz2"
+    name="rviz2"
+    args="-d $(var rviz_config) -f base_link">
+  </node>
+  -->
+  
+  <!-- hw6 -->
+  <node 
+    pkg="rviz2"
+    exec="rviz2"
+    name="rviz2"
+    args="-d $(var rviz_config) -f world">
+  </node>
+  
+  <!-- don't need since we use the ingition_frame_id tag in the sensor urdf
+  <node 
+    pkg="tf2_ros"
+    exec="static_transform_publisher"
+    args="0 0 0 0 0 0 sonar_link RSP/base_link/tool_sonar">
+  </node>
+  -->
+
+</launch>
