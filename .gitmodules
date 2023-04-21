@@ -1,0 +1,14 @@
+[submodule "orocos_toolchain"]
+	path = orocos_toolchain
+	url = https://github.com/orocos-toolchain/orocos_toolchain.git
+	branch = ros2
+[submodule "ros2_rtt_typekits"]
+	path = ros2_rtt_typekits
+	url = https://github.com/simonleonard/ros2_rtt_typekits.git
+[submodule "rtt_ros2_integration"]
+	path = rtt_ros2_integration
+	url = https://github.com/simonleonard/rtt_ros2_integration.git
+	branch = feature/add-rtt_tf2
+[submodule "rtt_ros2_common_interfaces"]
+	path = rtt_ros2_common_interfaces
+	url = https://github.com/simonleonard/rtt_ros2_common_interfaces
