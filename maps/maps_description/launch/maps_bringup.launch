@@ -1,0 +1,24 @@
+<launch>
+
+    <arg name="name" default="left"/>
+    <arg name="parent" default="world"/>
+    <arg name="x" default="0.0"/>
+    <arg name="y" default="0.0"/>
+    <arg name="z" default="0.0"/>
+    <arg name="roll" default="0.0"/>
+    <arg name="pitch" default="0.0"/>
+    <arg name="yaw" default="0.0"/>
+
+    <group>
+        <push-ros-namespace namespace="$(var name)"/>
+
+        <node 
+            pkg="robot_state_publisher"
+            exec="robot_state_publisher"
+            name="robot_state_publisher"
+            output="screen" >
+            <param name="robot_description" value="$(command 'xacro $(find-pkg-share maps_description)/urdf/maps.urdf.xacro name:=$(var name) parent:=$(var parent) offset_x:=$(var x) offset_y:=$(var y) offset_z:=$(var z) offset_roll:=$(var roll) offset_pitch:=$(var pitch) offset_yaw:=$(var yaw)')" />
+        </node>
+    </group>
+
+</launch>
