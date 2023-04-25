@@ -7,7 +7,7 @@
   <xacro:macro name="maps" params="name parent offset_x offset_y offset_z offset_roll offset_pitch offset_yaw">
 
     <link name="${name}_base_link">
-      <inertial>
+      <!-- <inertial>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <mass value="0.0"/>
         <inertia ixx="0" iyy="0" izz="0" ixy="0" iyz="0" ixz="0"/>
@@ -22,7 +22,7 @@
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
         </geometry>
-      </collision>
+      </collision> -->
     </link>
 
     <link name="${name}_bottom_plate">
@@ -34,14 +34,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/bottom_plate.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/bottom_plate.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="black"/>
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/bottom_plate.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/bottom_plate.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
@@ -55,14 +55,14 @@
       <visual>
         <origin xyz="-0.0287 0.059285 -0.048891" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Stepper_Housing_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Stepper_Housing_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="black"/>
       </visual>
       <collision>
         <origin xyz="-0.0287 0.059285 -0.048891" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Stepper_Housing_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Stepper_Housing_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
@@ -76,14 +76,14 @@
       <visual>
         <origin xyz="-0.049606 0.045344 -0.111388" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Stepper_Motor_2.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Stepper_Motor_2.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="silver"/>
       </visual>
       <collision>
         <origin xyz="-0.049606 0.045344 -0.111388" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Stepper_Motor_2.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Stepper_Motor_2.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
@@ -97,14 +97,14 @@
       <visual>
         <origin xyz="-0.0287 -0.011715 -0.073891" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Stepper_Motor_Pulley_2.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Stepper_Motor_Pulley_2.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="silver"/>
       </visual>
       <collision>
         <origin xyz="-0.0287 -0.011715 -0.073891" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Stepper_Motor_Pulley_2.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Stepper_Motor_Pulley_2.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
@@ -118,14 +118,14 @@
       <visual>
         <origin xyz="-0.049606 0.045344 -0.048888" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Stepper_Motor_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Stepper_Motor_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="silver"/>
       </visual>
       <collision>
         <origin xyz="-0.049606 0.045344 -0.048888" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Stepper_Motor_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Stepper_Motor_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
@@ -139,14 +139,14 @@
       <visual>
         <origin xyz="-0.0287 -0.011715 -0.073891" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Stepper_Motor_Pulley_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Stepper_Motor_Pulley_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="silver"/>
       </visual>
       <collision>
         <origin xyz="-0.0287 -0.011715 -0.073891" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Stepper_Motor_Pulley_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Stepper_Motor_Pulley_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
@@ -160,14 +160,14 @@
       <visual>
         <origin xyz="-0.054412 0.011344 -0.043888" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Housing_Half_Right_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Housing_Half_Right_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="black"/>
       </visual>
       <collision>
         <origin xyz="-0.054412 0.011344 -0.043888" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Housing_Half_Right_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Housing_Half_Right_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
@@ -181,14 +181,14 @@
       <visual>
         <origin xyz="-0.053812 -0.025156 0.066112" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Lid_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Lid_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="black"/>
       </visual>
       <collision>
         <origin xyz="-0.053812 -0.025156 0.066112" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Lid_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Lid_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
@@ -202,14 +202,14 @@
       <visual>
         <origin xyz="-0.014706 -0.00794 3e-06" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Heat_Set_Nitinol_Tubing_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Heat_Set_Nitinol_Tubing_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="silver"/>
       </visual>
       <collision>
         <origin xyz="-0.014706 -0.00794 3e-06" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Heat_Set_Nitinol_Tubing_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Heat_Set_Nitinol_Tubing_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
@@ -223,14 +223,14 @@
       <visual>
         <origin xyz="-0.092112 -0.015881 0.071823" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Clamp_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Clamp_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="silver"/>
       </visual>
       <collision>
         <origin xyz="-0.092112 -0.015881 0.071823" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Clamp_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Clamp_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
@@ -244,14 +244,14 @@
       <visual>
         <origin xyz="-0.08886 -0.011717 0.091848" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/9271K713_Torsion_Spring_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/9271K713_Torsion_Spring_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="silver"/>
       </visual>
       <collision>
         <origin xyz="-0.08886 -0.011717 0.091848" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/9271K713_Torsion_Spring_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/9271K713_Torsion_Spring_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
@@ -265,14 +265,14 @@
       <visual>
         <origin xyz="-0.073212 -0.015881 0.039665" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Carriage_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Carriage_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="silver"/>
       </visual>
       <collision>
         <origin xyz="-0.073212 -0.015881 0.039665" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Carriage_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Carriage_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
@@ -286,14 +286,14 @@
       <visual>
         <origin xyz="-0.073212 -0.015881 6e-06" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Encoder_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Encoder_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="silver"/>
       </visual>
       <collision>
         <origin xyz="-0.073212 -0.015881 6e-06" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Encoder_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Encoder_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
@@ -307,14 +307,14 @@
       <visual>
         <origin xyz="-0.037412 -0.022156 0.068612" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Housing_Half_Left_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Housing_Half_Left_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
         <material name="black"/>
       </visual>
       <collision>
         <origin xyz="-0.037412 -0.022156 0.068612" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://maps_description/meshes/Housing_Half_Left_1.stl" scale="0.001 0.001 0.001"/>
+          <mesh filename="file://$(find maps_description)/meshes/Housing_Half_Left_1.stl" scale="0.001 0.001 0.001"/>
         </geometry>
       </collision>
     </link>
