@@ -1,44 +1,47 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="oct">
-  <xacro:include filename="$(find oct_description)/urdf/hc_sr04.xacro" />
-
   <xacro:macro name="oct" params="parent *origin">
-    <link name="base_link">
+    <link name="oct_link">
       <visual>
-        <origin rpy="0 -0.20 0" xyz="0 0 0.05"/>
+        <xacro:insert_block name="origin"/>
         <geometry>
-          <box size="0.035 0.05 0.1"/>
+          <cylinder length="0.01" radius="0.001"/>
         </geometry>
-        <material name="Blue">
-          <color rgba="0 0.0 1.0 0.5"/>
+        <material name="blue">
+          <color rgba="0.0 0.0 0.8 1.0"/>
         </material>
       </visual>
       <collision>
-        <origin rpy="0 -0.20 0" xyz="0 0 0.05"/>
+        <origin xyz="0 0 0"/>
         <geometry>
-          <box size="0.035 0.05 0.1"/>
+          <cylinder length="0.01" radius="0.001"/>
         </geometry>
+        <material name="blue">
+          <color rgba="0.0 0.0 0.8 1.0"/>
+        </material>
       </collision>
       <inertial>
-        <origin rpy="0 0 0" xyz="0 0 0.05"/>
-        <mass value="0.180"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.000453592"/>
         <inertia ixx="6.0e-4" ixy="0" ixz="0" iyy="6.0e-4" iyz="0" izz="6.0e-4"/>
       </inertial>
     </link>
     
-    <joint name="base_link_joint" type="fixed">
-      <parent link="${parent}"/>
-      <child link="base_link"/>
-      <xacro:insert_block name="origin"/>
+    <link name="oct_tissue_link"/>
+    
+    <link name="oct_nitinol_link"/>
+
+    <joint name="oct_tissue_joint" type="fixed">
+      <parent link="oct_link"/>
+      <child link="oct_tissue_link"/>
+      <origin xyz="0 0 0"/>
       <axis xyz="0 1 0"/>
     </joint>
-
-    <xacro:hc_sr04 name="oct_tissue" id="tissue" parent="${parent}">
-      <xacro:insert_block name="origin"/>
-    </xacro:hc_sr04>
     
-    <xacro:hc_sr04 name="oct_nitinol" id="nitinol" parent="${parent}">
-      <xacro:insert_block name="origin"/>
-    </xacro:hc_sr04>
+    <joint name="oct_nitinol_joint" type="fixed">
+      <parent link="oct_link"/>
+      <child link="oct_nitinol_link"/>
+      <origin xyz="0 0 0"/>
+      <axis xyz="0 1 0"/>
+    </joint>
   </xacro:macro>
-
 </robot>
