@@ -159,25 +159,25 @@ void oct_system::PostUpdate( const ignition::gazebo::UpdateInfo& info,
     Xb << ", " <<  
     Yb << std::endl;
 
-  // collect world position of edumip robot
+  // collect world position of oct robot
   
-  auto edumipModel = ignition::gazebo::Model(
-      ecm.EntityByComponents(ignition::gazebo::components::Name("edumip")));
-  if (!edumipModel.Valid(ecm))
+  auto octModel = ignition::gazebo::Model(
+      ecm.EntityByComponents(ignition::gazebo::components::Name("oct_test")));
+  if (!octModel.Valid(ecm))
   {
-    ignerr << "edumip entity not found" << std::endl;
+    ignerr << "oct entity not found" << std::endl;
     return;
   }
-  if (edumipModel.Name(ecm) != "")
+  if (octModel.Name(ecm) != "")
   {
-    igndbg << "edumip model name: " << edumipModel.Name(ecm) << std::endl;
+    igndbg << "oct model name: " << octModel.Name(ecm) << std::endl;
   }
 
-  ignition::math::Pose3d edumipPose = worldPose(edumipModel.Entity(), ecm);
-  float Xe = edumipPose.Pos().X();
-  float Ye = edumipPose.Pos().Y();
+  ignition::math::Pose3d octPose = worldPose(octModel.Entity(), ecm);
+  float Xe = octPose.Pos().X();
+  float Ye = octPose.Pos().Y();
 
-  igndbg << "edumip world position: " <<
+  igndbg << "oct world position: " <<
     Xe << ", " << 
     Ye << std::endl;
 

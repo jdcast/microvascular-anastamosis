@@ -8,7 +8,7 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(oct_description REQUIRED)
-find_package(tot_plugin REQUIRED)
+find_package(oct_plugin REQUIRED)
 
 install (DIRECTORY worlds DESTINATION share/${PROJECT_NAME})
 install (DIRECTORY launch DESTINATION share/${PROJECT_NAME})

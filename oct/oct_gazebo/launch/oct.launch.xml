@@ -6,15 +6,12 @@
   <!-- hw6 -->
   <let name="rviz_config" value="$(find-pkg-share oct_gazebo)/config/rviz_hw6.rviz"/>
   <let name="oct_offset_z" value="0.0"/>
-
   <let name="gazebo_world" value="$(find-pkg-share oct_gazebo)/worlds/oct.world.sdf"/>
   <let name="oct_urdf_xacro" value="$(find-pkg-share oct_description)/urdf/oct.urdf.xacro"/>
   <let name="oct_urdf" value="$(command 'xacro $(var oct_urdf_xacro)')"/>
-  <let name="oct_plugin_path" 
-    value="$(find-pkg-prefix oct_plugin)"/>
+  <let name="oct_plugin_path" value="$(find-pkg-prefix oct_plugin)"/>
 
-  <set_env name="IGN_GAZEBO_SYSTEM_PLUGIN_PATH" 
-    value="$(var oct_plugin_path)/lib"/>
+  <set_env name="IGN_GAZEBO_SYSTEM_PLUGIN_PATH" value="$(var oct_plugin_path)/lib"/>
   
   <include file="$(find-pkg-share oct_description)/launch/oct_startup.launch.xml"/>
   

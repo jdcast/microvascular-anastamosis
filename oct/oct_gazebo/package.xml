@@ -10,6 +10,7 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
   
   <depend>oct_description</depend>
+  <depend>oct_plugin</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

@@ -1,7 +1,28 @@
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="oct_test">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="oct">
   <xacro:include filename="$(find oct_description)/urdf/oct.xacro" />
 
-  <link name="world" />
+  <link name="world">
+    <visual>
+      <origin rpy="0 -0.20 0" xyz="0 0 0.05"/>
+      <geometry>
+        <box size="0.035 0.05 0.1"/>
+      </geometry>
+      <material name="Blue">
+        <color rgba="0 0.0 1.0 0.5"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 -0.20 0" xyz="0 0 0.05"/>
+      <geometry>
+        <box size="0.035 0.05 0.1"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.05"/>
+      <mass value="0.180"/>
+      <inertia ixx="6.0e-4" ixy="0" ixz="0" iyy="6.0e-4" iyz="0" izz="6.0e-4"/>
+    </inertial>
+  </link>
 
   <xacro:oct parent="world">
     <origin xyz="0 0 0.1" rpy="0 0 0"/>

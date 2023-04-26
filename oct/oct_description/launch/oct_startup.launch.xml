@@ -3,7 +3,9 @@
   <let name="oct_description" value="$(command 'xacro $(var oct_urdf_xacro)')"/>
   
   <!-- testing code -->
+  <!--
   <let name="rviz_config" value="$(find-pkg-share oct_description)/config/rviz.rviz"/>
+  -->
 
   <node
     pkg="robot_state_publisher"
@@ -15,6 +17,7 @@
   </node>
   
   <!-- testing code -->
+  <!--
   <node
     pkg="joint_state_publisher_gui"
     exec="joint_state_publisher_gui"
@@ -29,5 +32,6 @@
     name="rviz2"
     args="-d $(var rviz_config) -f world">
   </node>
+  -->
 
 </launch>

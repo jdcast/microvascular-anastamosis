@@ -9,7 +9,7 @@
     <plugin name='ignition::gazebo::systems::UserCommands' filename='ignition-gazebo-user-commands-system'/>
     <plugin name='ignition::gazebo::systems::SceneBroadcaster' filename='ignition-gazebo-scene-broadcaster-system'/>
     <plugin name='ignition::gazebo::systems::Contact' filename='ignition-gazebo-contact-system'/>
-      <!--<plugin filename="tot_plugin" name="tot_system"/> -->
+      <!--<plugin filename="oct_plugin" name="oct_system"/> -->
     <gravity>0 0 -9.8</gravity>
     <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
     <atmosphere type='adiabatic'/>
@@ -68,7 +68,7 @@
       <self_collide>false</self_collide>
     </model>
     <model name="towers">
-      <plugin filename="tot_plugin" name="tot_system">
+      <plugin filename="oct_plugin" name="oct_system">
         <towerA>towerA</towerA>
         <towerB>towerB</towerB>
       </plugin>
@@ -103,6 +103,7 @@
             </surface>
           </collision>
           <visual name='cylinder_visual'>
+            <visibility_flags>1</visibility_flags>
             <geometry>
               <cylinder>
                 <radius>0.5</radius>
