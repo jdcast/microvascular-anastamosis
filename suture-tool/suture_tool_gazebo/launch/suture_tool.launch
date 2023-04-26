@@ -1,0 +1,49 @@
+<launch>
+
+    <!--<let name="gz_world" value="$(find-pkg-share edumip_gazebo)/worlds/world.sdf"/>-->
+    <let name="gz_world" value="$(find-pkg-share suture_tool_gazebo)/worlds/suture_tool.sdf"/>
+    
+    <!-- start robot publisher in other launch file -->
+    <include file="$(find-pkg-share suture_tool_description)/launch/suture_tool_startup.launch"/>
+
+    <!-- start gazebo -->
+    <executable 
+    cmd="ign gazebo $(var gz_world) -v 4"
+    output="screen"/>
+
+    <!-- add tool -->
+    <node 
+        pkg="ros_ign_gazebo" 
+        exec="create" 
+        args="-param robot_description" 
+        output="screen">
+        <param name="robot_description" value="$(command 'xacro $(find-pkg-share suture_tool_description)/urdf/endo360.urdf.xacro')" />
+    </node>
+    
+    <!-- start bridge for joint state -->
+
+    <node
+        pkg="ros_ign_bridge"
+        exec="parameter_bridge"
+        args="/world/empty/model/robot/joint_state@sensor_msgs/msg/JointState@ignition.msgs.Model"
+        output="screen">
+        <remap from="/world/empty/model/robot/joint_state" to="/joint_states"/>
+    </node>
+
+    <!-- start bridge for cmd_vel -->
+    <!--<node
+    pkg="ros_ign_bridge"
+    exec="parameter_bridge"
+    args="/model/robot/cmd_vel@geometry_msgs/msg/Twist@ignition.msgs.Twist"
+    output="screen">
+    <remap from="/model/robot/cmd_vel" to="/cmd_vel"/>
+    </node>-->
+
+    <!-- start rviz -->
+    <node
+        pkg="rviz2"
+        exec="rviz2"
+        args="-d $(find-pkg-share suture_tool_gazebo)/config/rviz_config.rviz">
+    </node>
+ 
+</launch>

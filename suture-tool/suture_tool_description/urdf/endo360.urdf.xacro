@@ -1,0 +1,7 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot">
+
+    <xacro:include filename="$(find suture_tool_description)/urdf/endo360.xacro"/>
+    
+    <xacro:suture_tool parent="kuka_ee" tool_name="endo360"/>  
+
+</robot>
