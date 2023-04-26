@@ -7,7 +7,7 @@
     <arg name="pitch" default="0.0"/>
     <arg name="yaw" default="0.0"/>
 	
-	<include file="$(find-pkg-share maps_description)/launch/maps_double.launch">
+	<include file="$(find-pkg-share maps_description)/launch/maps_double.launch.xml">
 	</include>
 
 	<!-- <include file="$(find-pkg-share ros_ign_gazebo)/launch/ign_gazebo.launch.py">
