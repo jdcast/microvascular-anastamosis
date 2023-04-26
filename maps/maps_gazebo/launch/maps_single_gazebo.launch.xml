@@ -1,0 +1,46 @@
+<launch>
+	
+	<arg name="name" default="left"/>
+    <arg name="parent" default="world"/>
+    <arg name="x" default="0.0"/>
+    <arg name="y" default="0.0"/>
+    <arg name="z" default="0.0"/>
+    <arg name="roll" default="0.0"/>
+    <arg name="pitch" default="0.0"/>
+    <arg name="yaw" default="0.0"/>
+	
+	<include file="$(find-pkg-share maps_description)/launch/maps_single.launch.xml">
+		<arg name="name" value="$(var name)"/>
+        <arg name="parent" value="$(var parent)"/>
+        <arg name="x" value="$(var x)"/>
+        <arg name="y" value="$(var y)"/>
+        <arg name="z" value="$(var z)"/>
+        <arg name="roll" value="$(var roll)"/>
+        <arg name="pitch" value="$(var pitch)"/>
+        <arg name="yaw" value="$(var yaw)"/>
+	</include>
+
+	<!-- <include file="$(find-pkg-share ros_ign_gazebo)/launch/ign_gazebo.launch.py">
+		<arg name="ign_args" value="$(find-pkg-share maps_gazebo)/worlds/maps.world"/>
+	</include> -->
+
+	<node
+		pkg="ros_ign_gazebo"
+		exec="create"
+		name="ros_gazebo_maps_create"
+		output="screen"
+		args="-topic /$(var name)/robot_description -name $(var name)_maps"
+	>
+
+	</node>
+
+	<node
+		pkg="ros_ign_bridge"
+		exec="parameter_bridge"
+		name="param_bridge_maps_joints"
+		args="/world/maps/model/left_maps/joint_state@sensor_msgs/msg/JointState]ignition.msgs.Model"
+		output="screen"
+	>
+	</node>
+
+</launch>

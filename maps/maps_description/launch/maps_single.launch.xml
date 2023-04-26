@@ -1,0 +1,35 @@
+<launch>
+
+    <arg name="name" default="left"/>
+    <arg name="parent" default="world"/>
+    <arg name="x" default="0.0"/>
+    <arg name="y" default="0.0"/>
+    <arg name="z" default="0.0"/>
+    <arg name="roll" default="0.0"/>
+    <arg name="pitch" default="0.0"/>
+    <arg name="yaw" default="0.0"/>
+
+	<include file="$(find-pkg-share maps_description)/launch/maps_bringup.launch">
+        <arg name="name" value="$(var name)"/>
+        <arg name="parent" value="$(var parent)"/>
+        <arg name="x" value="$(var x)"/>
+        <arg name="y" value="$(var y)"/>
+        <arg name="z" value="$(var z)"/>
+        <arg name="roll" value="$(var roll)"/>
+        <arg name="pitch" value="$(var pitch)"/>
+        <arg name="yaw" value="$(var yaw)"/>
+	</include>
+    
+    <group>
+        <push-ros-namespace namespace="$(var name)"/>
+        <node 
+            pkg="joint_state_publisher_gui"
+            exec="joint_state_publisher_gui"
+            name="maps_joint_state_publisher_gui"
+            output="screen" >
+        </node>
+    </group>
+
+    <node pkg="rviz2" exec="rviz2" name="rviz2" args="-d $(find-pkg-share maps_description)/rviz/config.rviz" />
+
+</launch>

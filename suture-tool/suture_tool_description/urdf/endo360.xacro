@@ -1,0 +1,121 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="tool">
+  
+  <xacro:macro name="suture_tool" params="parent tool_name">
+    
+    <!-- Tool properties -->
+    <xacro:property name="tool_mass" value="0.200"/>
+    <xacro:property name="max_effort" value="300"/>
+    <xacro:property name="max_velocity" value="10"/>
+    <xacro:property name="l1" value="0.015"/>
+    <xacro:property name="l2" value="0.035"/>
+    <xacro:property name="r" value="0.005"/>
+    <xacro:property name="joint_0_offset" value="0.00 0.0000 0.56736"/>
+    <xacro:property name="joint_1_offset" value="0.00 0.0025 0.04600"/>
+    
+    <link name = "${parent}"/>
+      
+    <!--  Dummy joint for the base of the tool.-->
+    <joint name="${parent}_${tool_name}_joint" type="fixed">
+      <parent link="${parent}" />
+      <child link = "${tool_name}_link_0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />  
+    </joint>
+    
+    <!-- link0-->
+    <link name="${tool_name}_link_0">
+      
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>			
+          <mesh filename="file://$(find suture_tool_description)/meshes/endo360-l7.dae"/>			
+        </geometry>
+        <material name="White"/>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find suture_tool_description)/meshes/endo360-l7.dae"/>			
+        </geometry>
+      </collision>
+
+      <inertial>
+        <mass value="1e-5" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      </inertial>
+    </link>
+    
+    <!--   revoluate joint between link_0 and link_1-->
+    <joint name="${tool_name}_joint_1" type="revolute">
+      <parent link="${tool_name}_link_0"/>
+      <child link="${tool_name}_link_1"/>
+      <origin xyz="${joint_0_offset}" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="${-30 * pi / 180}" upper="${30 * pi / 180}" effort="${max_effort}" velocity="${max_velocity}" />
+    </joint>
+    
+    <!-- link1-->
+    <link name="${tool_name}_link_1">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find suture_tool_description)/meshes/endo360-l8.dae"/>				
+        </geometry>
+        <material name="Red"/>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0.015" rpy="0 ${pi} 0"/>
+        <geometry>
+          <mesh filename="file://$(find suture_tool_description)/meshes/endo360-l8.dae"/>				
+        </geometry>
+      </collision>
+      
+      <inertial>
+        <mass value="1e-5" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      </inertial>
+    </link>
+    
+    <!-- joint between link_1 and needle -->
+    <joint name="${tool_name}_joint_3" type="revolute">
+      <parent link="${tool_name}_link_1"/>
+      <child link="${tool_name}_needle"/>
+      <origin xyz="${joint_1_offset}" rpy="0 0 0"/>
+      <axis xyz="0 1 0"/>
+      <limit lower="${-180 * pi / 180}" upper="${180 * pi / 180}" effort="${max_effort}" velocity="${max_velocity}" />
+    </joint>
+
+    <!-- needle link -->
+    <link name="${tool_name}_needle">
+    <visual>
+        <origin xyz="0 -0.003 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find suture_tool_description)/meshes/needle.stl" scale="0.001 0.001 0.001"/>				
+        </geometry>
+      </visual>
+
+      <collision>
+        <origin xyz="0 -0.003 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="file://$(find suture_tool_description)/meshes/needle.stl" scale="0.001 0.001 0.001"/>				
+        </geometry>
+      </collision>
+      
+      <inertial>
+        <mass value="1e-5" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+      </inertial>
+    </link>
+
+    <gazebo>
+	    <plugin filename="libignition-gazebo-joint-state-publisher-system.so" 
+	  		  name="ignition::gazebo::systems::JointStatePublisher"/>
+	  </gazebo>
+    
+    
+  </xacro:macro>
+</robot>

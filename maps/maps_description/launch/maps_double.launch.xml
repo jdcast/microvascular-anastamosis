@@ -1,0 +1,35 @@
+<launch>
+
+	<include file="$(find-pkg-share maps_description)/launch/maps_bringup.launch">
+	</include>
+
+	<include file="$(find-pkg-share maps_description)/launch/maps_bringup.launch">
+		<arg name="x" value="0"/>
+		<arg name="y" value="0.040"/>
+		<arg name="yaw" value="3.14159"/>
+		<arg name="name" value="right"/>
+	</include>
+
+    <group>
+        <push-ros-namespace namespace="left"/>
+        <node 
+            pkg="joint_state_publisher_gui"
+            exec="joint_state_publisher_gui"
+            name="maps_joint_state_publisher_gui"
+            output="screen" >
+        </node>
+    </group>
+
+    <group>
+        <push-ros-namespace namespace="right"/>
+        <node 
+            pkg="joint_state_publisher_gui"
+            exec="joint_state_publisher_gui"
+            name="maps_joint_state_publisher_gui"
+            output="screen" >
+        </node>
+    </group>
+
+    <node pkg="rviz2" exec="rviz2" name="rviz2" args="-d $(find-pkg-share maps_description)/rviz/config.rviz" />
+
+</launch>

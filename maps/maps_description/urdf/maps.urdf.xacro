@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="maps">
+
+  <xacro:include filename="$(find maps_description)/urdf/maps.xacro" />
+
+  <xacro:arg name="parent" default="world"/>
+  <xacro:arg name="name" default="left"/>
+  <xacro:arg name="offset_x" default="0.0"/>
+  <xacro:arg name="offset_y" default="0.0"/>
+  <xacro:arg name="offset_z" default="0.0"/>
+  <xacro:arg name="offset_roll" default="0.0"/>
+  <xacro:arg name="offset_pitch" default="0.0"/>
+  <xacro:arg name="offset_yaw" default="0.0"/>
+
+  <xacro:maps name="$(arg name)" parent="$(arg parent)" offset_x="$(arg offset_x)" offset_y="$(arg offset_y)" offset_z="$(arg offset_z)" offset_roll="$(arg offset_roll)" offset_pitch="$(arg offset_pitch)" offset_yaw="$(arg offset_yaw)"/>
+
+  <gazebo>
+    <plugin filename="libignition-gazebo-joint-state-publisher-system.so"
+    name="ignition::gazebo::systems::JointStatePublisher"/>
+  </gazebo>
+
+  <link name="$(arg parent)"/>
+  
+</robot>
