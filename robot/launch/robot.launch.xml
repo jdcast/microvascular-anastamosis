@@ -1,0 +1,29 @@
+<launch>
+  <arg name="kuka_parent" default="world"/>
+  <arg name="suture_tool_parent" default="kuka_link_ee"/>
+  <arg name="kuka_namespace" default="kuka"/>
+  <arg name="suture_tool_namespace" default="suture_tool"/>
+  
+  <group> <!-- need group to keep args from clashing -->
+    
+    <include file="$(find-pkg-share kuka_gazebo)/launch/kuka_gazebo.launch.xml">
+      <arg name="namespace" value="$(var kuka_namespace)"/>
+      <arg name="parent" value="$(var kuka_parent)"/>
+    </include>
+
+    <include file="$(find-pkg-share suture_tool_gazebo)/launch/suture_tool.launch.xml">
+      <arg name="name" value="$(var suture_tool_namespace)"/>
+      <arg name="parent" value="$(var suture_tool_parent)"/>
+    </include>
+
+  </group>
+  
+  <let name="rviz_config" value="$(find-pkg-share robot)/config/rviz.rviz"/>
+
+  <node 
+    pkg="rviz2"
+    exec="rviz2"
+    name="rviz2"
+    args="-d $(var rviz_config) -f $(var kuka_parent)">
+  </node>
+</launch>

@@ -24,8 +24,10 @@
   <node pkg="ros_ign_gazebo" exec="create" name="spawn" output="screen" args="-world kuka -name $(var name) -topic /$(var name)/robot_description"/>
 
   <node pkg="ros_ign_bridge" exec="parameter_bridge" name="kuka_js_bridge" args="/world/kuka/model/$(var name)/joint_state@sensor_msgs/msg/JointState@ignition.msgs.Model">
-    <remap from="/world/kuka/model/$(var name)/joint_state" to="/$(var robot_name)/joint_states"/>
+    <remap from="/world/kuka/model/$(var name)/joint_state" to="/$(var name)/joint_states"/>
   </node>
 
+  <!--
   <node pkg="rviz2" exec="rviz2" name="kuka_rviz" args="-f world -d $(find-pkg-share kuka_gazebo)/worlds/kuka.rviz"/>
+  -->
 </launch>

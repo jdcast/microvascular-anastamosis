@@ -10,7 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(urdf REQUIRED)
 find_package(kuka_description REQUIRED)
 
-install(DIRECTORY launch/ DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
 install(DIRECTORY worlds DESTINATION share/${PROJECT_NAME})
 
 if(BUILD_TESTING)

@@ -8,7 +8,6 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(urdf REQUIRED)
-find_package(robot_state_publisher REQUIRED)
 
 include_directories(include)
 

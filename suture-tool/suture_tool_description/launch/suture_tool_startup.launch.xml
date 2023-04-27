@@ -1,0 +1,30 @@
+<launch>
+  <arg name="parent" default="world"/>
+  <arg name="names" default="suture_tool"/>
+  
+  <let 
+    name="robot_description" 
+    value="$(command 'xacro $(find-pkg-share suture_tool_description)/urdf/endo360.urdf.xacro parent:=$(var parent)')"/>
+
+  <group>
+    <push-ros-namespace namespace="$(var name)"/>
+
+    <node
+      pkg="robot_state_publisher"
+      exec="robot_state_publisher"
+      name="robot_state_publisher"
+      output="screen">
+      <param name="robot_description" value="$(var robot_description)"/>
+    </node>
+
+    <!-- commented out so does not intefere with the bridged topic from ign -->
+    <!--
+    <node
+        pkg="joint_state_publisher_gui"
+        exec="joint_state_publisher_gui" 
+        name="joint_state_publisher_gui"
+        output="screen">
+    </node>-->
+  </group>
+
+</launch>
