@@ -34,14 +34,12 @@
       <parent link="oct_link"/>
       <child link="oct_tissue_link"/>
       <origin xyz="0 0 0"/>
-      <axis xyz="0 1 0"/>
     </joint>
     
     <joint name="oct_nitinol_joint" type="fixed">
       <parent link="oct_link"/>
       <child link="oct_nitinol_link"/>
       <origin xyz="0 0 0"/>
-      <axis xyz="0 1 0"/>
     </joint>
   </xacro:macro>
 </robot>

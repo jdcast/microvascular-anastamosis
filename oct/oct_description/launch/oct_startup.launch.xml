@@ -1,33 +1,47 @@
 <launch>
+  <arg name="name" default="oct"/>
+  <arg name="parent" default="world"/>
+	<arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="0"/>
+  <arg name="roll" default="0"/>
+  <arg name="pitch" default="0"/>
+  <arg name="yaw" default="0"/>
+  
   <let name="oct_urdf_xacro" value="$(find-pkg-share oct_description)/urdf/oct.urdf.xacro"/>
-  <let name="oct_description" value="$(command 'xacro $(var oct_urdf_xacro)')"/>
+  <let name="oct_description" value="$(command 'xacro $(var oct_urdf_xacro) parent:=$(var parent) offset_x:=$(var x) offset_y:=$(var y) offset_z:=$(var z) offset_roll:=$(var roll) offset_pitch:=$(var pitch) offset_yaw:=$(var yaw)')"/>
   
   <!-- testing code -->
   <let name="rviz_config" value="$(find-pkg-share oct_description)/config/rviz.rviz"/>
 
-  <node
-    pkg="robot_state_publisher"
-    exec="robot_state_publisher"
-    name="robot_state_publisher"
-    output="screen">
-    <param name="robot_description" value="$(var oct_description)"/>
-    <remap from="/joint_states" to="/world/empty/model/oct/joint_state"/>
-  </node>
-  
-  <!-- testing code -->
-  <node
-    pkg="joint_state_publisher_gui"
-    exec="joint_state_publisher_gui"
-    name="joint_state_publisher_gui"
-    output="screen">
-    <remap from="/joint_states" to="/world/empty/model/RSP/joint_state"/>
-  </node>
+  <group>
+    <push-ros-namespace namespace="$(var name)"/>
+    
+    <node
+      pkg="robot_state_publisher"
+      exec="robot_state_publisher"
+      name="robot_state_publisher"
+      output="screen">
+      <param name="robot_description" value="$(var oct_description)"/>
+      <remap from="/joint_states" to="/world/empty/model/oct/joint_state"/>
+    </node>
+    
+    <!-- testing code -->
+    <node
+      pkg="joint_state_publisher_gui"
+      exec="joint_state_publisher_gui"
+      name="joint_state_publisher_gui"
+      output="screen">
+      <remap from="/joint_states" to="/world/empty/model/oct/joint_state"/>
+    </node>
 
-  <node 
-    pkg="rviz2"
-    exec="rviz2"
-    name="rviz2"
-    args="-d $(var rviz_config) -f world">
-  </node>
+    <node 
+      pkg="rviz2"
+      exec="rviz2"
+      name="rviz2"
+      args="-d $(var rviz_config) -f oct_link">
+    </node>
+  </group>
+
 
 </launch>

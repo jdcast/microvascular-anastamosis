@@ -1,8 +1,16 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="oct">
   <xacro:include filename="$(find oct_description)/urdf/oct.xacro" />
 
-  <xacro:oct parent="world">
-    <origin xyz="0 0 0.1" rpy="0 0 0"/>
+  <xacro:arg name="parent" default="world"/>
+  <xacro:arg name="offset_x" default="0"/>
+  <xacro:arg name="offset_y" default="0"/>
+  <xacro:arg name="offset_z" default="0"/>
+  <xacro:arg name="offset_roll" default="0"/>
+  <xacro:arg name="offset_pitch" default="0"/>
+  <xacro:arg name="offset_yaw" default="0"/>
+
+  <xacro:oct parent="$(arg parent)">
+		<origin xyz="$(arg offset_x) $(arg offset_y) $(arg offset_z)" rpy="$(arg offset_roll) $(arg offset_pitch) $(arg offset_yaw)"/>
   </xacro:oct>
   
 </robot>
