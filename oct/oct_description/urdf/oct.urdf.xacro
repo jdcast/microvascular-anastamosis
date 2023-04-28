@@ -8,8 +8,10 @@
   <xacro:arg name="offset_roll" default="0"/>
   <xacro:arg name="offset_pitch" default="0"/>
   <xacro:arg name="offset_yaw" default="0"/>
+  <xacro:arg name="tissue_visibility_mask" default="4294967294"/>
+  <xacro:arg name="nitinol_visibility_mask" default="4294967293"/>
 
-  <xacro:oct parent="$(arg parent)">
+  <xacro:oct parent="$(arg parent)" tissue_visibility_mask="$(arg tissue_visibility_mask)" nitinol_visibility_mask="$(arg nitinol_visibility_mask)">
 		<origin xyz="$(arg offset_x) $(arg offset_y) $(arg offset_z)" rpy="$(arg offset_roll) $(arg offset_pitch) $(arg offset_yaw)"/>
   </xacro:oct>
   

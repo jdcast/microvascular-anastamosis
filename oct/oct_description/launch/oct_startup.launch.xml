@@ -7,9 +7,11 @@
   <arg name="roll" default="0"/>
   <arg name="pitch" default="0"/>
   <arg name="yaw" default="0"/>
+  <arg name="tissue_visibility_mask" default="4294967294"/>
+  <arg name="nitinol_visibility_mask" default="4294967293"/>
   
   <let name="oct_urdf_xacro" value="$(find-pkg-share oct_description)/urdf/oct.urdf.xacro"/>
-  <let name="oct_description" value="$(command 'xacro $(var oct_urdf_xacro) parent:=$(var parent) offset_x:=$(var x) offset_y:=$(var y) offset_z:=$(var z) offset_roll:=$(var roll) offset_pitch:=$(var pitch) offset_yaw:=$(var yaw)')"/>
+  <let name="oct_description" value="$(command 'xacro $(var oct_urdf_xacro) parent:=$(var parent) offset_x:=$(var x) offset_y:=$(var y) offset_z:=$(var z) offset_roll:=$(var roll) offset_pitch:=$(var pitch) offset_yaw:=$(var yaw) nitinol_visibility_mask:=$(var nitinol_visibility_mask) tissue_visibility_mask:=$(var tissue_visibility_mask)')"/>
   
   <!-- testing code -->
   <let name="rviz_config" value="$(find-pkg-share oct_description)/config/rviz.rviz"/>

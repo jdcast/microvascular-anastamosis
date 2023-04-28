@@ -1,8 +1,11 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="oct">
-  <xacro:macro name="oct" params="parent *origin">
+  <xacro:macro name="oct" params="parent tissue_visibility_mask nitinol_visibility_mask *origin ">
+    <!-- test code -->
+    <link name="world"/>
+    <!---->
+
     <link name="oct_link">
       <visual>
-        <xacro:insert_block name="origin"/>
         <geometry>
           <cylinder length="0.01" radius="0.001"/>
         </geometry>
@@ -26,9 +29,17 @@
       </inertial>
     </link>
     
-    <link name="oct_tissue_link"/>
+    <link name="oct_tissue_link">
+    </link>
     
-    <link name="oct_nitinol_link"/>
+    <link name="oct_nitinol_link">
+    </link>
+    
+    <joint name="oct_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="oct_link"/>
+      <xacro:insert_block name="origin"/>
+    </joint>
 
     <joint name="oct_tissue_joint" type="fixed">
       <parent link="oct_link"/>
@@ -41,5 +52,71 @@
       <child link="oct_nitinol_link"/>
       <origin xyz="0 0 0"/>
     </joint>
+
+    <gazebo reference="oct_tissue_link">
+      <sensor type="gpu_lidar" name="gpu_lidar">
+        <update_rate>40.0</update_rate> 
+        <always_on>1</always_on>
+        <topic>oct_tissue</topic>
+        <visualize>1</visualize>
+        <ignition_frame_id>oct_tissue_link</ignition_frame_id>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>15</samples>
+              <resolution>1.0</resolution>
+              <min_angle>-0.1309</min_angle>
+              <max_angle>0.1309</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>15</samples>
+              <resolution>1.0</resolution>
+              <min_angle>-0.1309</min_angle>
+              <max_angle>0.1309</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.000001</min>
+            <max>4.0</max>
+          </range>
+          <visibility_mask>${tissue_visibility_mask}</visibility_mask>
+        </ray>
+        <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
+        </plugin>
+      </sensor>
+    </gazebo>
+    
+    <gazebo reference="oct_nitinol_link">
+      <sensor type="gpu_lidar" name="gpu_lidar">
+        <update_rate>40.0</update_rate> 
+        <always_on>1</always_on>
+        <topic>oct_nitinol</topic>
+        <visualize>1</visualize>
+        <ignition_frame_id>oct_nitinol_link</ignition_frame_id>
+        <ray>
+          <scan>
+            <horizontal>
+              <samples>15</samples>
+              <resolution>1.0</resolution>
+              <min_angle>-0.1309</min_angle>
+              <max_angle>0.1309</max_angle>
+            </horizontal>
+            <vertical>
+              <samples>15</samples>
+              <resolution>1.0</resolution>
+              <min_angle>-0.1309</min_angle>
+              <max_angle>0.1309</max_angle>
+            </vertical>
+          </scan>
+          <range>
+            <min>0.000001</min>
+            <max>4.0</max>
+          </range>
+          <visibility_mask>${nitinol_visibility_mask}</visibility_mask>
+        </ray>
+        <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
+        </plugin>
+      </sensor>
+    </gazebo>
   </xacro:macro>
 </robot>
