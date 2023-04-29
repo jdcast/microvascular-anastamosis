@@ -44,17 +44,17 @@
     <joint name="oct_tissue_joint" type="fixed">
       <parent link="oct_link"/>
       <child link="oct_tissue_link"/>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 1.57 0"/><!-- orient lidar along model; it naturally points in x-direction -->
     </joint>
     
     <joint name="oct_nitinol_joint" type="fixed">
       <parent link="oct_link"/>
       <child link="oct_nitinol_link"/>
-      <origin xyz="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 1.57 0"/>
     </joint>
 
     <gazebo reference="oct_tissue_link">
-      <sensor type="gpu_lidar" name="gpu_lidar">
+      <sensor type="gpu_lidar" name="oct_tissue_lidar">
         <update_rate>40.0</update_rate> 
         <always_on>1</always_on>
         <topic>oct_tissue</topic>
@@ -81,13 +81,15 @@
           </range>
           <visibility_mask>${tissue_visibility_mask}</visibility_mask>
         </ray>
+        <!--
         <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
         </plugin>
+        -->
       </sensor>
     </gazebo>
     
     <gazebo reference="oct_nitinol_link">
-      <sensor type="gpu_lidar" name="gpu_lidar">
+      <sensor type="gpu_lidar" name="oct_nitinol_lidar">
         <update_rate>40.0</update_rate> 
         <always_on>1</always_on>
         <topic>oct_nitinol</topic>
@@ -114,8 +116,10 @@
           </range>
           <visibility_mask>${nitinol_visibility_mask}</visibility_mask>
         </ray>
+        <!--
         <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
         </plugin>
+        -->
       </sensor>
     </gazebo>
   </xacro:macro>

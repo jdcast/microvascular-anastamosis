@@ -10,7 +10,8 @@
     <plugin name='ignition::gazebo::systems::SceneBroadcaster' filename='ignition-gazebo-scene-broadcaster-system'/>
     <plugin name='ignition::gazebo::systems::Contact' filename='ignition-gazebo-contact-system'/>
       <!--<plugin filename="oct_plugin" name="oct_system"/> -->
-    <gravity>0 0 -9.8</gravity>
+    <plugin name="ignition::gazebo::systems::Sensors" filename="ignition-gazebo-sensors-system"/>
+    <gravity>0 0 0</gravity>
     <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
     <atmosphere type='adiabatic'/>
     <scene>
@@ -67,13 +68,10 @@
       <pose>0 0 0 0 -0 0</pose>
       <self_collide>false</self_collide>
     </model>
-    <model name="towers">
-      <plugin filename="oct_plugin" name="oct_system">
-        <towerA>towerA</towerA>
-        <towerB>towerB</towerB>
-      </plugin>
-      <model name='towerA'>
-        <pose>0.066472 2.94969 0.5 0 -0 0</pose>
+    <model name='vessel'>
+      <pose>0 0 -1 0 1.57 0</pose>
+      <model name='tissue'>
+        <pose>0 0 0 0 0 0</pose>
         <link name='cylinder_link'>
           <inertial>
             <inertia>
@@ -103,7 +101,7 @@
             </surface>
           </collision>
           <visual name='cylinder_visual'>
-            <visibility_flags>1</visibility_flags>
+            <visibility_flags>2</visibility_flags>
             <geometry>
               <cylinder>
                 <radius>0.5</radius>
@@ -116,14 +114,14 @@
               <specular>1 1 1 1</specular>
             </material>
           </visual>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0 0 0 0</pose>
           <enable_wind>false</enable_wind>
         </link>
         <static>false</static>
         <self_collide>false</self_collide>
       </model>
-      <model name='towerB'>
-        <pose>-0.047891 -3.02514 0.5 0 -0 0</pose>
+      <model name='nitinol'>
+        <pose>0 0 0 0 0 0</pose>
         <link name='cylinder_link'>
           <inertial>
             <inertia>
@@ -135,12 +133,12 @@
               <izz>0.125</izz>
             </inertia>
             <mass>1</mass>
-            <pose>0 0 0 0 -0 0</pose>
+            <pose>0 0 0 0 0 0</pose>
           </inertial>
           <collision name='cylinder_collision'>
             <geometry>
               <cylinder>
-                <radius>0.5</radius>
+                <radius>0.4</radius>
                 <length>1</length>
               </cylinder>
             </geometry>
@@ -153,9 +151,10 @@
             </surface>
           </collision>
           <visual name='cylinder_visual'>
+            <visibility_flags>4</visibility_flags>
             <geometry>
               <cylinder>
-                <radius>0.5</radius>
+                <radius>0.4</radius>
                 <length>1</length>
               </cylinder>
             </geometry>
@@ -165,7 +164,7 @@
               <specular>1 1 1 1</specular>
             </material>
           </visual>
-          <pose>0 0 0 0 -0 0</pose>
+          <pose>0 0 0.5 0 0 0</pose>
           <enable_wind>false</enable_wind>
         </link>
         <static>false</static>

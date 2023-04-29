@@ -1,19 +1,35 @@
 <launch>
-  <!-- hw5
-  <let name="rviz_config" value="$(find-pkg-share oct_gazebo)/config/rviz.rviz"/>
-  -->
+  <arg name="name" default="oct"/>
+  <arg name="parent" default="world"/>
+	<arg name="x" default="0"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="0"/>
+  <arg name="roll" default="0"/>
+  <arg name="pitch" default="0"/>
+  <arg name="yaw" default="0"/>
+  <arg name="tissue_visibility_mask" default="4294967293"/><!-- 11111111111111111111111111111101 -->
+  <arg name="nitinol_visibility_mask" default="4294967291"/><!-- 11111111111111111111111111111011 -->
 
-  <!-- hw6 -->
-  <let name="rviz_config" value="$(find-pkg-share oct_gazebo)/config/rviz_hw6.rviz"/>
-  <let name="oct_offset_z" value="0.0"/>
+  <let name="rviz_config" value="$(find-pkg-share oct_gazebo)/config/rviz.rviz"/>
   <let name="gazebo_world" value="$(find-pkg-share oct_gazebo)/worlds/oct.world.sdf"/>
   <let name="oct_urdf_xacro" value="$(find-pkg-share oct_description)/urdf/oct.urdf.xacro"/>
-  <let name="oct_urdf" value="$(command 'xacro $(var oct_urdf_xacro)')"/>
+  <let name="oct_urdf" value="$(command 'xacro $(var oct_urdf_xacro) parent:=$(var parent) offset_x:=$(var x) offset_y:=$(var y) offset_z:=$(var z) offset_roll:=$(var roll) offset_pitch:=$(var pitch) offset_yaw:=$(var yaw) nitinol_visibility_mask:=$(var nitinol_visibility_mask) tissue_visibility_mask:=$(var tissue_visibility_mask)')"/>
   <let name="oct_plugin_path" value="$(find-pkg-prefix oct_plugin)"/>
 
   <set_env name="IGN_GAZEBO_SYSTEM_PLUGIN_PATH" value="$(var oct_plugin_path)/lib"/>
   
-  <include file="$(find-pkg-share oct_description)/launch/oct_startup.launch.xml"/>
+  <include file="$(find-pkg-share oct_description)/launch/oct_startup.launch.xml">
+    <arg name="name" value="$(var name)"/>
+    <arg name="parent" value="$(var parent)"/>
+    <arg name="x" value="$(var x)"/>
+    <arg name="y" value="$(var y)"/>
+    <arg name="z" value="$(var z)"/>
+    <arg name="roll" value="$(var roll)"/>
+    <arg name="pitch" value="$(var pitch)"/>
+    <arg name="yaw" value="$(var yaw)"/>
+    <arg name="tissue_visibility_mask" value="$(var tissue_visibility_mask)"/>
+    <arg name="nitinol_visibility_mask" value="$(var nitinol_visibility_mask)"/>
+  </include>
   
   <executable 
     cmd="ign gazebo $(var gazebo_world) -v 4"
@@ -24,23 +40,38 @@
   <node 
     pkg="ros_ign_gazebo"
     exec="create"
-    args="-world empty -string $(var oct_urdf) -v 4 -z $(var oct_offset_z)">
+    name="spawn"
+    args="-world empty -name $(var name) -string $(var oct_urdf) -v 4 -z $(var z)">
   </node>
   
   <node 
     pkg="ros_ign_bridge"
     exec="parameter_bridge"
-    args="/world/empty/model/oct/joint_state@sensor_msgs/msg/JointState[ignition.msgs.Model"
+    name="oct_js_bridge"
+    args="/world/oct/model/$(var name)/joint_state@sensor_msgs/msg/JointState[ignition.msgs.Model"
     output="screen">
+    <remap from="/world/oct/model/$(var name)/joint_state" to="$(var name)/joint_states"/>
   </node>
   
   <node 
     pkg="ros_ign_bridge"
     exec="parameter_bridge"
-    args="/sonar@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan"
+    name="ros_oct_tissue_lidar_bridge"
+    args="/oct_tissue@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan"
     output="screen">
+    <remap from="/oct_tissue" to="/oct/lidar/tissue"/>
   </node>
   
+  <node 
+    pkg="ros_ign_bridge"
+    exec="parameter_bridge"
+    name="ros_oct_nitinol_lidar_bridge"
+    args="/oct_nitinol@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan"
+    output="screen">
+    <remap from="/oct_nitinol" to="/oct/lidar/nitinol"/>
+  </node>
+  
+  <!--
   <node 
     pkg="ros_ign_bridge"
     exec="parameter_bridge"
@@ -61,17 +92,8 @@
     args="/oct/p2@geometry_msgs/msg/PoseStamped@ignition.msgs.Pose"
     output="screen">
   </node>
-  
-  <!-- hw5
-  <node 
-    pkg="rviz2"
-    exec="rviz2"
-    name="rviz2"
-    args="-d $(var rviz_config) -f base_link">
-  </node>
   -->
   
-  <!-- hw6 -->
   <node 
     pkg="rviz2"
     exec="rviz2"
