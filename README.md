@@ -41,3 +41,9 @@ RSP Final Project
   - `git checkout feature/<branch_name>`
   - `git merge main` # solve merge conflicts if you have
   - `git push`
+
+## Documentation Tools/Concepts:
+- [Read the Docs](https://docs.readthedocs.io/en/stable/tutorial/index.html#getting-started)
+- [Reproducible Builds](https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html)
+- [pip-tools](https://pip-tools.readthedocs.io/en/latest/)
+- [sphinx](https://www.sphinx-doc.org/en/master/tutorial/getting-started.html#setting-up-your-project-and-development-environment)
