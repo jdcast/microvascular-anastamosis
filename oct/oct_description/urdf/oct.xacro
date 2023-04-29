@@ -81,10 +81,6 @@
           </range>
           <visibility_mask>${tissue_visibility_mask}</visibility_mask>
         </ray>
-        <!--
-        <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
-        </plugin>
-        -->
       </sensor>
     </gazebo>
     
@@ -116,10 +112,6 @@
           </range>
           <visibility_mask>${nitinol_visibility_mask}</visibility_mask>
         </ray>
-        <!--
-        <plugin filename="ignition-gazebo-sensors-system" name="ignition::gazebo::systems::Sensors">
-        </plugin>
-        -->
       </sensor>
     </gazebo>
   </xacro:macro>
