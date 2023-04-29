@@ -71,29 +71,6 @@
     <remap from="/oct_nitinol" to="/oct/lidar/nitinol"/>
   </node>
   
-  <!--
-  <node 
-    pkg="ros_ign_bridge"
-    exec="parameter_bridge"
-    args="/model/oct/cmd_vel@geometry_msgs/msg/Twist@ignition.msgs.Twist"
-    output="screen">
-  </node>
-  
-  <node 
-    pkg="ros_ign_bridge"
-    exec="parameter_bridge"
-    args="/oct/p1@geometry_msgs/msg/PoseStamped@ignition.msgs.Pose"
-    output="screen">
-  </node>
-  
-  <node 
-    pkg="ros_ign_bridge"
-    exec="parameter_bridge"
-    args="/oct/p2@geometry_msgs/msg/PoseStamped@ignition.msgs.Pose"
-    output="screen">
-  </node>
-  -->
-  
   <node 
     pkg="rviz2"
     exec="rviz2"
