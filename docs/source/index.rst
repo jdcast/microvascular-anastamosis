@@ -3,13 +3,19 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
+.. note::
+  This project is under active development.
+
 Welcome to rsp-final-project's documentation!
 =============================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 4
+   :hidden:
+   :caption: Packages:
+   :glob:
 
+   oct/index
 
 
 Indices and tables
@@ -19,5 +25,3 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
-.. note::
-  This project is under active development.
