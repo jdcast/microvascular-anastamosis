@@ -1,22 +1,72 @@
 <launch>
-  <arg name="kuka_parent" default="world"/>
-  <arg name="suture_tool_parent" default="kuka_link_ee"/>
-  <arg name="kuka_namespace" default="kuka"/>
-  <arg name="suture_tool_namespace" default="suture_tool"/>
+  <arg name="parent" default="world"/>
+  <arg name="name" default="robot"/>
+  <arg name="z" default="0"/>
   
-  <group> <!-- need group to keep args from clashing -->
-    
-    <include file="$(find-pkg-share kuka_gazebo)/launch/kuka_gazebo.launch.xml">
-      <arg name="namespace" value="$(var kuka_namespace)"/>
-      <arg name="parent" value="$(var kuka_parent)"/>
-    </include>
+  <let 
+    name="gazebo_world" 
+    value="$(find-pkg-share robot)/worlds/world.sdf"/>
+  <let 
+    name="robot_urdf_xacro" 
+    value="$(find-pkg-share robot)/urdf/robot.urdf.xacro"/>
+  <let 
+    name="robot_urdf" 
+    value="$(command 'xacro $(var robot_urdf_xacro)')"/>
+  
+  <node
+    pkg="robot_state_publisher"
+    exec="robot_state_publisher"
+    name="robot_state_publisher"
+    output="screen">
+    <param name="robot_description" value="$(var robot_urdf)"/>
+  </node>
+  
+  <executable 
+    cmd="ign gazebo $(var gazebo_world) -v 4"
+    cwd="."
+    launch-prefix=""
+    output="screen"/>
 
-    <include file="$(find-pkg-share suture_tool_gazebo)/launch/suture_tool.launch.xml">
-      <arg name="name" value="$(var suture_tool_namespace)"/>
-      <arg name="parent" value="$(var suture_tool_parent)"/>
-    </include>
-
-  </group>
+  <node 
+    pkg="ros_ign_gazebo"
+    exec="create"
+    name="spawn"
+    args="-world empty -name $(var name) -string $(var robot_urdf) -v 4 -z $(var z)">
+  </node>
+  
+  <node
+    pkg="joint_state_publisher_gui"
+    exec="joint_state_publisher_gui"
+    name="joint_state_publisher_gui"
+    output="screen">
+  </node>
+  
+  <node 
+    pkg="ros_ign_bridge"
+    exec="parameter_bridge"
+    name="robot_js_bridge"
+    args="/world/robot/model/$(var name)/joint_state@sensor_msgs/msg/JointState[ignition.msgs.Model"
+    output="screen">
+    <remap from="/world/robot/model/$(var name)/joint_state" to="/joint_states"/>
+  </node>
+  
+  <node 
+    pkg="ros_ign_bridge"
+    exec="parameter_bridge"
+    name="ros_oct_tissue_lidar_bridge"
+    args="/oct_tissue@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan"
+    output="screen">
+    <remap from="/oct_tissue" to="/oct/lidar/tissue"/>
+  </node>
+  
+  <node 
+    pkg="ros_ign_bridge"
+    exec="parameter_bridge"
+    name="ros_oct_nitinol_lidar_bridge"
+    args="/oct_nitinol@sensor_msgs/msg/LaserScan[ignition.msgs.LaserScan"
+    output="screen">
+    <remap from="/oct_nitinol" to="/oct/lidar/nitinol"/>
+  </node>
   
   <let name="rviz_config" value="$(find-pkg-share robot)/config/rviz.rviz"/>
 
@@ -24,6 +74,6 @@
     pkg="rviz2"
     exec="rviz2"
     name="rviz2"
-    args="-d $(var rviz_config) -f $(var kuka_parent)">
+    args="-d $(var rviz_config) -f $(var parent)">
   </node>
 </launch>

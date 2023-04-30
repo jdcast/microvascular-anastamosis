@@ -1,6 +1,6 @@
 <launch>
   <arg name="parent" default="world"/>
-  <arg name="names" default="suture_tool"/>
+  <arg name="name" default="suture_tool"/>
   
   <let 
     name="robot_description" 
