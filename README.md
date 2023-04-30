@@ -42,8 +42,9 @@ RSP Final Project
   - `git merge main` # solve merge conflicts if you have
   - `git push`
 
-## Documentation Tools/Concepts:
+## Documentation:
 - [Project Documenation](https://jdcast-rsp-final-project.readthedocs.io/en/latest/index.html#)
+### Documentation Tools
 - [Read the Docs](https://docs.readthedocs.io/en/stable/tutorial/index.html#getting-started)
 - [Reproducible Builds](https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html)
 - [pip-tools](https://pip-tools.readthedocs.io/en/latest/)
