@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(kuka_gazebo)
+project(robot)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -7,10 +7,13 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(urdf REQUIRED)
-find_package(kuka_description REQUIRED)
+find_package(oct_gazebo REQUIRED)
+find_package(kuka_gazebo REQUIRED)
+find_package(suture_tool_gazebo REQUIRED)
 
+install(DIRECTORY urdf DESTINATION share/${PROJECT_NAME})
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY config DESTINATION share/${PROJECT_NAME})
 install(DIRECTORY worlds DESTINATION share/${PROJECT_NAME})
 
 if(BUILD_TESTING)

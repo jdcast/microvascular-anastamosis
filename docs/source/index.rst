@@ -15,6 +15,7 @@ Welcome to rsp-final-project's documentation!
    :caption: Packages:
    :glob:
 
+   robot/index
    oct/index
 
 

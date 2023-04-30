@@ -1,8 +1,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="oct">
   <xacro:macro name="oct" params="parent tissue_visibility_mask nitinol_visibility_mask *origin ">
-    <!-- test code
+    <!-- test code -->
     <link name="world"/>
-    -->
     <!---->
 
     <link name="oct_link">

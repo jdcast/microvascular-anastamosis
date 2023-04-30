@@ -43,7 +43,7 @@ RSP Final Project
   - `git push`
 
 ## Documentation
-- [Project Documenation](https://jdcast-rsp-final-project.readthedocs.io/en/latest/index.html#)
+- [Project Documenation Website](https://jdcast-rsp-final-project.readthedocs.io/en/latest/index.html#)
 
 ### Documentation Tools
 - [Read the Docs](https://docs.readthedocs.io/en/stable/tutorial/index.html#getting-started)
@@ -55,4 +55,4 @@ RSP Final Project
 - To View Locally:
   - cd `docs/source`
   - `sphinx-build -b html . ../build/html/`
-  - point browser to `index.html` within `source/`
+  - point browser to `index.html` within `build/html/`

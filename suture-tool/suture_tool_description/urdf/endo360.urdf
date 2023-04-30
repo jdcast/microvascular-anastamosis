@@ -4,10 +4,12 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
 <robot name="robot">
-  <link name="endo360_base"/>
+  <!-- 
+    <link name = "${parent}"/>
+    -->
   <!--  Dummy joint for the base of the tool.-->
-  <joint name="iiwa_endo360_joint" type="fixed">
-    <parent link="endo360_base"/>
+  <joint name="world_endo360_joint" type="fixed">
+    <parent link="world"/>
     <child link="endo360_link_0"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
   </joint>
@@ -16,14 +18,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="file:///home/anchi/rsp_fp_ws/install/suture_tool_description/share/suture_tool_description/meshes/endo360-l7.dae"/>
+        <mesh filename="file:///home/nightrider/Documents/JHU/rsp/rsp_fp_ws/install/suture_tool_description/share/suture_tool_description/meshes/endo360-l7.dae"/>
       </geometry>
       <material name="White"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="file:///home/anchi/rsp_fp_ws/install/suture_tool_description/share/suture_tool_description/meshes/endo360-l7.dae"/>
+        <mesh filename="file:///home/nightrider/Documents/JHU/rsp/rsp_fp_ws/install/suture_tool_description/share/suture_tool_description/meshes/endo360-l7.dae"/>
       </geometry>
     </collision>
     <inertial>
@@ -45,14 +47,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="file:///home/anchi/rsp_fp_ws/install/suture_tool_description/share/suture_tool_description/meshes/endo360-l8.dae"/>
+        <mesh filename="file:///home/nightrider/Documents/JHU/rsp/rsp_fp_ws/install/suture_tool_description/share/suture_tool_description/meshes/endo360-l8.dae"/>
       </geometry>
       <material name="Red"/>
     </visual>
     <collision>
       <origin rpy="0 3.141592653589793 0" xyz="0 0 0.015"/>
       <geometry>
-        <mesh filename="file:///home/anchi/rsp_fp_ws/install/suture_tool_description/share/suture_tool_description/meshes/endo360-l8.dae"/>
+        <mesh filename="file:///home/nightrider/Documents/JHU/rsp/rsp_fp_ws/install/suture_tool_description/share/suture_tool_description/meshes/endo360-l8.dae"/>
       </geometry>
     </collision>
     <inertial>
@@ -70,5 +72,26 @@
     <limit effort="300" lower="-3.141592653589793" upper="3.141592653589793" velocity="10"/>
   </joint>
   <!-- needle link -->
-  <link name="endo360_needle"/>
+  <link name="endo360_needle">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 -0.003 0"/>
+      <geometry>
+        <mesh filename="file:///home/nightrider/Documents/JHU/rsp/rsp_fp_ws/install/suture_tool_description/share/suture_tool_description/meshes/needle.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 -0.003 0"/>
+      <geometry>
+        <mesh filename="file:///home/nightrider/Documents/JHU/rsp/rsp_fp_ws/install/suture_tool_description/share/suture_tool_description/meshes/needle.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <mass value="1e-5"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+  <gazebo>
+    <plugin filename="libignition-gazebo-joint-state-publisher-system.so" name="ignition::gazebo::systems::JointStatePublisher"/>
+  </gazebo>
 </robot>

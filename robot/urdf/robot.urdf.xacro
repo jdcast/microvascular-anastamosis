@@ -1,0 +1,48 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robot">
+  <xacro:include filename="$(find kuka_description)/urdf/materials.xacro" />
+  <xacro:include filename="$(find kuka_description)/urdf/iiwa7.xacro"/>
+  <xacro:include filename="$(find suture_tool_description)/urdf/endo360.xacro" />
+  <xacro:include filename="$(find oct_description)/urdf/oct.xacro" />
+  
+    <!-- kuka args -->
+  <xacro:arg name="kuka_hardware_interface" default="PositionJointInterface"/>
+  <xacro:arg name="kuka_robot_name" default="kuka"/>
+  <xacro:arg name="kuka_parent" default="world"/>
+  <xacro:arg name="kuka_offset_x" default="0"/>
+  <xacro:arg name="kuka_offset_y" default="0"/>
+  <xacro:arg name="kuka_offset_z" default="0"/>
+  <xacro:arg name="kuka_offset_roll" default="0"/>
+  <xacro:arg name="kuka_offset_pitch" default="0"/>
+  <xacro:arg name="kuka_offset_yaw" default="0"/>
+  
+  <!-- suture tool args -->
+  <xacro:arg name="suture_tool_parent" default="kuka_link_ee"/>
+  <xacro:arg name="suture_tool_name" default="endo360"/>
+
+  <!-- oct args -->
+  <xacro:arg name="oct_parent" default="$(arg suture_tool_name)_needle"/>
+  <xacro:arg name="oct_offset_x" default="0"/>
+  <xacro:arg name="oct_offset_y" default="0"/>
+  <xacro:arg name="oct_offset_z" default="0"/>
+  <xacro:arg name="oct_offset_roll" default="0"/>
+  <xacro:arg name="oct_offset_pitch" default="3.14"/>
+  <xacro:arg name="oct_offset_yaw" default="0"/>
+  <xacro:arg name="oct_tissue_visibility_mask" default="4294967294"/>
+  <xacro:arg name="oct_nitinol_visibility_mask" default="4294967293"/>
+  
+  <link name="world"/>
+  
+  <!-- kuka -->
+  <xacro:iiwa7 hardware_interface="$(arg kuka_hardware_interface)" robot_name="$(arg kuka_robot_name)" parent="$(arg kuka_parent)">
+    <origin xyz="$(arg kuka_offset_x) $(arg kuka_offset_y) $(arg kuka_offset_z)" rpy="$(arg kuka_offset_roll) $(arg kuka_offset_pitch) $(arg kuka_offset_yaw)"/>
+  </xacro:iiwa7>
+
+  <!-- suture tool -->
+  <xacro:suture_tool parent="$(arg suture_tool_parent)" tool_name="$(arg suture_tool_name)"/>  
+    
+  <!-- oct -->
+  <xacro:oct parent="$(arg oct_parent)" tissue_visibility_mask="$(arg oct_tissue_visibility_mask)" nitinol_visibility_mask="$(arg oct_nitinol_visibility_mask)">
+		<origin xyz="$(arg oct_offset_x) $(arg oct_offset_y) $(arg oct_offset_z)" rpy="$(arg oct_offset_roll) $(arg oct_offset_pitch) $(arg oct_offset_yaw)"/>
+  </xacro:oct>
+  
+</robot>

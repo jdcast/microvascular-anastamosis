@@ -11,8 +11,10 @@
     <xacro:property name="r" value="0.005"/>
     <xacro:property name="joint_0_offset" value="0.00 0.0000 0.56736"/>
     <xacro:property name="joint_1_offset" value="0.00 0.0025 0.04600"/>
-    
+
+    <!-- 
     <link name = "${parent}"/>
+    -->
       
     <!--  Dummy joint for the base of the tool.-->
     <joint name="${parent}_${tool_name}_joint" type="fixed">
