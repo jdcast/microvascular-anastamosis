@@ -41,3 +41,18 @@ RSP Final Project
   - `git checkout feature/<branch_name>`
   - `git merge main` # solve merge conflicts if you have
   - `git push`
+
+## Documentation
+- [Project Documenation](https://jdcast-rsp-final-project.readthedocs.io/en/latest/index.html#)
+
+### Documentation Tools
+- [Read the Docs](https://docs.readthedocs.io/en/stable/tutorial/index.html#getting-started)
+- [Reproducible Builds](https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html)
+- [pip-tools](https://pip-tools.readthedocs.io/en/latest/)
+- [sphinx](https://www.sphinx-doc.org/en/master/tutorial/getting-started.html#setting-up-your-project-and-development-environment)
+- [Read the Docs Sphinx Theme](https://sphinx-rtd-theme.readthedocs.io/en/stable/)
+- Pushes on `main` will trigger rebuilds at for [Project Documenation](https://jdcast-rsp-final-project.readthedocs.io/en/latest/index.html#)
+- To View Locally:
+  - cd `docs/source`
+  - `sphinx-build -b html . ../build/html/`
+  - point browser to `index.html` within `source/`
