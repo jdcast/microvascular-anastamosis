@@ -2,29 +2,24 @@
 RSP Final Project
 
 ## Installation
-- `mkdir -p rsp_fp_ws/src`
-- `cd rsp_fp_ws/src`
-- `git clone --recurse-submodules git@github.com:jdcast/rsp-final-project.git`
-- Build Orocos toolchain by itself 
-  - colcon build --packages-select orocos_toolchain
-  - source install/setup.bash
-- Build the rest
-  - colcon build
-- Build Reflexxes library.
-  - Download and extract Reflexxes in some directory, say:
-    - `mkdir -p ~/src/reflexxes`
-    - `unzip ~/Downloads/ReflexxesTypeII.zip -d ~/src/reflexxes/`
-    - `cd ~/src/reflexxes/ReflexxesTypeII/Linux`
-  - Patch makefile and run Make
-    - `sed -i s/ddb/gdb/ Makefile.global`
-    - `make all64`
-  - Copy header files and library
-    - `sudo cp x64/release/lib/shared/libReflexxesTypeII.so /usr/local/lib/`
-    - `sudo cp ../include/* /usr/local/include/`
 
-## Updating if installed repository before addition of submodules (commit: https://github.com/jdcast/rsp-final-project/commit/a74f598e87c174add4e3216217bd5e41983b91d4)
-- `git pull`
-- `git submodule update --init --recursive`
+1. *mkdir -p <workspace_dir>/src*
+2. *cd <workspace_dir>/src*
+3. *git clone git@github.com:jdcast/rsp-final-project.git*
+4. *vcs import --recursive < rsp-final-project/galactic.repos*
+5. *cd ..*
+6. *rosdep -v install --from-paths src/rsp-final-project/ -y --ignore-src --skip-key="orocos_toolchain orocos_kdl rtt_ros2_services rtt_ros2_sensor_msgs rtt_ros2_std_msgs rtt_ros2_geometry_msgs rtt_ros2_topics rtt_ros2_params rtt_ros2_node rtt_ros2 kdl_typekit reflexxestype2 robot_joint_publisher_gui"*
+7. *colcon build --packages-select orocos_toolchain*
+8. *source install/setup.bash*
+9. *colcon build && source install/setup.bash && export COLCON_PREFIX_PATH=/home/nightrider/Documents/JHU/rsp/<workspace_dir>/install && rsp_rtt && echo $COLCON_PREFIX_PATH && echo $RTT_COMPONENT_PATH*
+    1. NOTE: make sure to replace *<workspace_dir>* with your workspace directory in the paths above
+    2. NOTE: *rsp_rtt* should be defined in the `.bashrc` as: *alias rsp_rtt='export RTT_COMPONENT_PATH=$COLCON_PREFIX_PATH/kdl_typekit/lib/orocos:$COLCON_PREFIX_PATH/orocos_toolchain/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_builtin_interfaces/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_geometry_msgs/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_interfaces/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_node/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_params/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_primitives_typekit/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_rclcpp_typekit/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_std_msgs/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_topics/lib/orocos:$COLCON_PREFIX_PATH/rsp_week07/lib/orocos:$COLCON_PREFIX_PATH/rtt_ur_trajectory/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_sensor_msgs/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_services/lib/orocos'*
+10. *sudo apt install ros-galactic-moveit-common && sudo apt install ros-galactic-moveit && sudo apt install ros-galactic-moveit-servo*
+11. *ros2 launch robot robot.launch.py*
+
+## Updating if installed repository before vcs/rosdep 
+- *rm -rf install/ build/ log/*
+- `follow steps 1-10 above`
 
 ## Workflow
 - `git checkout <branch_name>`
