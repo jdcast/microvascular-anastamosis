@@ -30,15 +30,6 @@
         <remap from="/world/empty/model/robot/joint_state" to="/joint_states"/>
     </node>
 
-    <!-- start bridge for cmd_vel -->
-    <!--<node
-    pkg="ros_ign_bridge"
-    exec="parameter_bridge"
-    args="/model/robot/cmd_vel@geometry_msgs/msg/Twist@ignition.msgs.Twist"
-    output="screen">
-    <remap from="/model/robot/cmd_vel" to="/cmd_vel"/>
-    </node>-->
-
     <!-- start rviz -->
     <node
         pkg="rviz2"

@@ -8,13 +8,12 @@
         <param name="robot_description" value="$(command 'xacro $(find-pkg-share suture_tool_description)/urdf/endo360.urdf.xacro')"/>
     </node>
 
-    <!-- commented out so does not intefere with the bridged topic from ign -->
-    <!--
+    
     <node
         pkg="joint_state_publisher_gui"
         exec="joint_state_publisher_gui" 
         name="joint_state_publisher_gui"
         output="screen">
-    </node>-->
+    </node>
 
 </launch>
