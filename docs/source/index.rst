@@ -17,6 +17,7 @@ Welcome to rsp-final-project's documentation!
 
    robot/index
    oct/index
+   suture-tool/index
 
 ..
    Indices and tables
@@ -57,6 +58,6 @@ Getting Started
      $COLCON_PREFIX_PATH/rtt_ros2_sensor_msgs/lib/orocos:
      $COLCON_PREFIX_PATH/rtt_ros2_services/lib/orocos'``
 
-13. Start complete robot simulation (rviz and gazebo) ``ros2 launch robot robot.launch.xml``
+13. Launch complete robot simulation (rviz and gazebo) ``ros2 launch robot robot.launch.xml``
 
 To see more details about a specific package, click on the links on the side!
