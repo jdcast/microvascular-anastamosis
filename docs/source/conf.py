@@ -6,6 +6,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+
 project = 'rsp-final-project'
 copyright = '2023, John Cast, Jesse Haworth, An Chi Chen, Jim Wang'
 author = 'John Cast, Jesse Haworth, An Chi Chen, Jim Wang'
@@ -18,7 +19,7 @@ extensions = []
 
 templates_path = ['_templates']
 exclude_patterns = []
-
+warp=['auto']
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -29,3 +30,9 @@ html_static_path = ['_static']
 html_theme_options = {
     'titles_only': True
 }
+html_css_files = [
+    'css/custom.css',
+]
+
+
+master_doc = 'index'
