@@ -1,36 +1,37 @@
-Suture Tool
-===========
+Kuka
+=====
+
+.. |kuka_gazebo.png| image:: ../_static/images/kuka/kuka_gazebo.png
+  :width: 100%
+  :alt: gazebo after ros2 launch kuka_gazebo kuka_gazebo.launch.xml
+
+.. |kuka_rviz.png| image:: ../_static/images/kuka/kuka_rviz.png
+  :width: 100%
+  :alt: rviz after ros2 launch kuka_gazebo kuka_gazebo.launch.xml
+
+.. |kuka_joint_state.png| image:: ../_static/images/kuka/kuka_joint_state.png
+  :width: 100%
+  :alt: adjusting the kuka joints using the joint state publisher
+
 
 .. note::
   This page is under active development.
 
-.. |suture-tool_gazebo.png| image:: ../_static/images/suture-tool/suture-tool_gazebo.png
-  :width: 100%
-  :alt: gazebo after ros2 launch suture_tool_gazebo suture_tool.launch
 
-.. |suture-tool_rviz.png| image:: ../_static/images/suture-tool/suture-tool_rviz.png
-  :width: 100%
-  :alt: rviz after ros2 launch suture_tool_gazebo suture_tool.launch
-
-.. |tool_joints.png| image:: ../_static/images/suture-tool/tool_joints.png
-  :width: 100%
-  :alt: adjusting the tool joints using the joint state publisher
-
-
-This package homes the details for the kuka robot used in this project.  To run just the `kuka package` switch to the ``feature/kuka`` branch in your workspace using ``git checkout --track origin/features/kuka``.
+This package homes the details for the kuka robot used in this project.  To run just the `kuka package` switch to the ``features/kuka`` branch in your workspace using ``git checkout --track origin/features/kuka``.
 
 Package Structure
 ------------------
 
-* suture_tool_control
+* kuka_control
 
-    (*future work*) will contain the control files for the suture tool.
+    (*future work*) will contain the control files for the kuka.
 
-* suture_tool_description
+* kuka_description
 
     * launch
 
-        contains launch file to start the `robot_state_publisher` for the kuka.
+        contains launch file to start the `robot_state_publisher` and `joint_state_publisher` for the kuka.
 
     * meshes
     
@@ -40,11 +41,7 @@ Package Structure
         
         contains the URDF files for the kuka robot.
 
-* suture_tool_gazebo
-
-    * config
-
-        contains the rviz config file.
+* kuka_gazebo
 
     * launch
 
@@ -52,29 +49,29 @@ Package Structure
 
     * worlds
 
-        contains world file for gazebo.
+        contains world file for gazebo and the rviz config file.
 
 Running the Suture Tool
 ------------------------
 
 1. Build the packages ``colcon build``
 2. ``source install/setup.bash``
-3. Launch rviz and gazebo with the suture tool ``ros2 launch suture_tool_gazebo suture_tool.launch``
+3. Launch rviz and gazebo with the kuka ``ros2 launch kuka_gazebo kuka_gazebo.launch.xml``
 
 See below for example output.
 
-.. list-table:: After: `ros2 launch suture_tool_gazebo suture_tool.launch` 
+.. list-table:: After: `ros2 launch kuka_gazebo kuka_gazebo.launch.xml` 
    :widths: 50 50
    :header-rows: 1
 
    * - gazebo
-     - rviz (with the Joint State Publisher gui)
-   * - |suture-tool_gazebo.png|
-     - |suture-tool_rviz.png|
+     - rviz
+   * - |kuka_gazebo.png|
+     - |kuka_rviz.png|
 
-It is possible to move the suture joints using the `Joint State Publisher` gui.
+It is possible to move the kuka joints using the `Joint State Publisher` gui.
 
-|tool_joints.png|
+|kuka_joint_state.png|
 
 
 

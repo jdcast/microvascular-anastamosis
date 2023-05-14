@@ -20,7 +20,7 @@ Welcome to rsp-final-project's documentation!
 
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 5
    :hidden:
    :caption: Packages:
    :glob:
@@ -28,6 +28,8 @@ Welcome to rsp-final-project's documentation!
    robot/index
    oct/index
    suture-tool/index
+   kuka/index
+   maps/index
 
 ..
    Indices and tables
