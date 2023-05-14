@@ -4,6 +4,13 @@ Maps
 .. note::
   This page is under active development.
 
+.. |maps_rviz.png| image:: ../_static/images/maps/maps_rviz.png
+  :width: 100%
+  :alt: rviz after ros2 launch maps_gazebo maps_doble_gazebo.launch
+
+.. |maps_joints.png| image:: ../_static/images/maps/maps_joints.png
+  :width: 100%
+  :alt: adjusting the tool joints using the joint state publisher
 
 
 
@@ -57,22 +64,17 @@ Running the Suture Tool
 
 1. Build the packages ``colcon build``
 2. ``source install/setup.bash``
-3. Launch rviz and gazebo with the maps system ``ros2 launch maps_gazebo maps_double_gazebo.launch``
+3. Launch rviz with the maps system ``ros2 launch maps_gazebo maps_double_gazebo.launch``
 
 See below for example output.
 
-.. list-table:: After: `ros2 launch maps_gazebo maps_double_gazebo.launch` 
-   :widths: 50 50
-   :header-rows: 1
+Rviz window after: `ros2 launch maps_gazebo maps_double_gazebo.launch` 
 
-   * - gazebo
-     - rviz (with the Joint State Publisher gui)
-   * - |suture-tool_gazebo.png|
-     - |suture-tool_rviz.png|
+|maps_rviz.png|
 
-It is possible to move the suture joints using the `Joint State Publisher` gui.
+It is possible to move the maps joints using the `Joint State Publisher` gui.
 
-|tool_joints.png|
+|maps_joints.png|
 
 
 

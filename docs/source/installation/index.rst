@@ -28,8 +28,10 @@ Enter into the workspace.
 
 ``cd <workspace_dir>/src``
 
-Clone the git repo
-------------------
+Setting up the repo
+-------------------
+
+Clone the git repo.
 
 ``git clone  https://github.com/jdcast/rsp-final-project.git``
 
@@ -86,9 +88,10 @@ Then run:
 Launch the robot simulation 
 ---------------------------
 
+``ros2 launch robot robot.launch.xml``
+
 You should see the robot in both an rivz and gazebo window.  See the images below for an example.
 
-``ros2 launch robot robot.launch.xml``
 
 .. list-table:: After: `ros2 launch robot robot.launch.xml` 
    :widths: 50 50
