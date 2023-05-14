@@ -59,8 +59,8 @@ Package Structure
 
         contains world file for gazebo.
 
-Running the Suture Tool
-------------------------
+Running the Maps System
+-----------------------
 
 1. Build the packages ``colcon build``
 2. ``source install/setup.bash``

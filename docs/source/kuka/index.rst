@@ -51,8 +51,8 @@ Package Structure
 
         contains world file for gazebo and the rviz config file.
 
-Running the Suture Tool
-------------------------
+Running the Kuka
+----------------
 
 1. Build the packages ``colcon build``
 2. ``source install/setup.bash``

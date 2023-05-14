@@ -63,7 +63,7 @@ Build everything else
 Alias to set environment variable
 ---------------------------------
 
-There are quite a few RTT packages and there is a high chance of running into limitation, setting the below alias in the ``.bashrc`` file will help.
+There are quite a few RTT packages and there is a high chance of running into limitations, setting the below alias in the ``.bashrc`` file will help.
      
 ``alias rsp_rtt='export RTT_COMPONENT_PATH=$COLCON_PREFIX_PATH/kdl_typekit/lib/orocos:
 $COLCON_PREFIX_PATH/orocos_toolchain/lib/orocos:
