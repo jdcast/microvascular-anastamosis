@@ -17,7 +17,7 @@ Suture Tool
   :alt: adjusting the tool joints using the joint state publisher
 
 
-This package homes the details for the suturing tool - endo360 for this project.  To run just the `suture-tool package` switch to the ``feature/suture-tool`` branch in your workspace using ``git checkout --track origin/features/suture-tool``.
+This package homes the details for the kuka robot used in this project.  To run just the `kuka package` switch to the ``feature/kuka`` branch in your workspace using ``git checkout --track origin/features/kuka``.
 
 Package Structure
 ------------------
@@ -30,15 +30,15 @@ Package Structure
 
     * launch
 
-        contains launch file to start the `robot_state_publisher` for the suture tool.
+        contains launch file to start the `robot_state_publisher` for the kuka.
 
     * meshes
     
-        contains mesh files for endo360 tool and circular needle.
+        contains mesh files for the kuka robot.
 
     * urdf
         
-        contains the URDF files for the suture tool (endo360).
+        contains the URDF files for the kuka robot.
 
 * suture_tool_gazebo
 
@@ -48,7 +48,7 @@ Package Structure
 
     * launch
 
-        contains the launch file to start gazebo and rviz, adding the suture tool.
+        contains the launch file to start gazebo and rviz, adding the kuka.
 
     * worlds
 
