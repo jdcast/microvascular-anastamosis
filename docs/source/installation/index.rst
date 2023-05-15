@@ -82,22 +82,9 @@ There are quite a few RTT packages and there is a high chance of running into li
 
 ::
 
-  alias rsp_rtt='export RTT_COMPONENT_PATH=$COLCON_PREFIX_PATH/kdl_typekit/lib/orocos:
-  $COLCON_PREFIX_PATH/orocos_toolchain/lib/orocos:
-  $COLCON_PREFIX_PATH/rtt_ros2_builtin_interfaces/lib/orocos:
-  $COLCON_PREFIX_PATH/rtt_ros2_geometry_msgs/lib/orocos:
-  $COLCON_PREFIX_PATH/rtt_ros2_interfaces/lib/orocos:
-  $COLCON_PREFIX_PATH/rtt_ros2/lib/orocos:
-  $COLCON_PREFIX_PATH/rtt_ros2_node/lib/orocos:
-  $COLCON_PREFIX_PATH/rtt_ros2_params/lib/orocos:
-  $COLCON_PREFIX_PATH/rtt_ros2_primitives_typekit/lib/orocos:
-  $COLCON_PREFIX_PATH/rtt_ros2_rclcpp_typekit/lib/orocos:
-  $COLCON_PREFIX_PATH/rtt_ros2_std_msgs/lib/orocos:
-  $COLCON_PREFIX_PATH/rtt_ros2_topics/lib/orocos:
-  $COLCON_PREFIX_PATH/rsp_week07/lib/orocos:
-  $COLCON_PREFIX_PATH/rtt_ur_trajectory/lib/orocos:
-  $COLCON_PREFIX_PATH/rtt_ros2_sensor_msgs/lib/orocos:
-  $COLCON_PREFIX_PATH/rtt_ros2_services/lib/orocos'
+  alias rsp_rtt='export RTT_COMPONENT_PATH=$COLCON_PREFIX_PATH/kdl_typekit/lib/orocos:$COLCON_PREFIX_PATH/orocos_toolchain/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_builtin_interfaces/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_geometry_msgs/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_interfaces/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_node/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_params/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_primitives_typekit/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_rclcpp_typekit/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_std_msgs/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_topics/lib/orocos:$COLCON_PREFIX_PATH/rsp_week07/lib/orocos:$COLCON_PREFIX_PATH/rtt_ur_trajectory/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_sensor_msgs/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_services/lib/orocos'
+
+
 
 Then run:
 
