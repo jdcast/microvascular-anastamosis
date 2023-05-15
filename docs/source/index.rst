@@ -6,8 +6,8 @@
 .. note::
   This project is under active development.
 
-Welcome to rsp-final-project's documentation!
-=============================================
+Welcome to `microvascular-anastamosis's <https://github.com/jdcast/microvascular-anastamosis>`_ documentation!
+==============================================================================================================
 
 
 .. toctree::
@@ -18,18 +18,17 @@ Welcome to rsp-final-project's documentation!
 
    installation/index
 
-
 .. toctree::
    :maxdepth: 5
    :hidden:
    :caption: Packages:
    :glob:
 
-   robot/index
-   oct/index
    suture-tool/index
    kuka/index
    maps/index
+   oct/index
+   robot/index
 
 ..
    Indices and tables

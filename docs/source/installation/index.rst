@@ -12,7 +12,7 @@ Installation
 .. note::
   This project is under active development.
 
-This tutorial goes over the installation process for the rsp-final-project.
+This tutorial goes over the installation process for the microvascular-anastamosis.
 
 Getting Started
 ---------------
