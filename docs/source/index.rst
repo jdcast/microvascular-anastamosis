@@ -30,6 +30,7 @@ Welcome to rsp-final-project's documentation!
    suture-tool/index
    kuka/index
    maps/index
+   ros2_img_to_bag_py/index
 
 ..
    Indices and tables

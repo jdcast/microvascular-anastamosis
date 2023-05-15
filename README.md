@@ -50,4 +50,4 @@ RSP Final Project
 - To View Locally:
   - cd `docs/source`
   - `sphinx-build -b html . ../build/html/`
-  - point browser to `index.html` within `build/html/`
+  - point browser to `build/html/index.html`
