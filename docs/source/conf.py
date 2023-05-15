@@ -7,7 +7,7 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 
-project = 'rsp-final-project'
+project = 'microvascular-anastamosis'
 copyright = '2023, John Cast, Jesse Haworth, An Chi Chen, Jim Wang'
 author = 'John Cast, Jesse Haworth, An Chi Chen, Jim Wang'
 release = '1.0.0'

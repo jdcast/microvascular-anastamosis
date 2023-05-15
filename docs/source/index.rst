@@ -6,8 +6,8 @@
 .. note::
   This project is under active development.
 
-Welcome to rsp-final-project's documentation!
-=============================================
+Welcome to `microvascular-anastamosis's <https://github.com/jdcast/microvascular-anastamosis>`_ documentation!
+==============================================================================================================
 
 
 .. toctree::
