@@ -3,7 +3,7 @@ RSP Final Project
 
 ## Installation
 
-1. `mkdir -p <workspace_dir>/src1
+1. `mkdir -p <workspace_dir>/src`
 2. `cd <workspace_dir>/src`
 3. `git clone git@github.com:jdcast/rsp-final-project.git`
 4. `vcs import --recursive < rsp-final-project/galactic.repos`
