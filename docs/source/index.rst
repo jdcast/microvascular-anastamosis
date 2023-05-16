@@ -18,18 +18,17 @@ Welcome to `microvascular-anastamosis's <https://github.com/jdcast/microvascular
 
    installation/index
 
-
 .. toctree::
    :maxdepth: 5
    :hidden:
    :caption: Packages:
    :glob:
 
-   robot/index
-   oct/index
    suture-tool/index
    kuka/index
    maps/index
+   oct/index
+   robot/index
    ros2_img_to_bag_py/index
 
 ..
