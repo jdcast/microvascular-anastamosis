@@ -41,4 +41,6 @@ Welcome to `microvascular-anastamosis's <https://github.com/jdcast/microvascular
 
 Here we go over the install instructions as well as how to load and run each individual package.
 
+For the install instructions click on the `Installation` link on the side.
+
 The project is made up of five packages: the suture tool, kuka robot, maps, oct and robot.  The robot packages combines that of the other four.  To see details about each package click on the package's link on the side.
