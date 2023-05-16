@@ -22,7 +22,7 @@ Package Structure
 
   * config
 
-    contains the rviz config file.
+    contains the rviz config file. 
 
   * launch
 
