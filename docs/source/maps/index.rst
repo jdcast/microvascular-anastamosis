@@ -12,6 +12,9 @@ Maps
   :width: 100%
   :alt: adjusting the tool joints using the joint state publisher
 
+.. |maps_gazebo.png| image:: ../_static/images/maps/maps_gazebo.png
+  :width: 100%
+  :alt: gazebo after ros2 launch maps_gazebo maps_doble_gazebo.launch
 
 
 This package homes the details for maps.  To run just the `maps package` switch to the ``features/maps`` branch in your workspace using ``git checkout --track origin/features/maps``.
@@ -71,6 +74,10 @@ See below for example output.
 Rviz window after: `ros2 launch maps_gazebo maps_double_gazebo.launch` 
 
 |maps_rviz.png|
+
+Gazebo window after: `ros2 launch maps_gazebo maps_double_gazebo.launch` 
+
+|maps_gazebo.png|
 
 It is possible to move the maps joints using the `Joint State Publisher` gui.
 
