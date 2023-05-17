@@ -10,9 +10,9 @@
 	<include file="$(find-pkg-share maps_description)/launch/maps_double.launch.xml">
 	</include>
 
-	<!-- <include file="$(find-pkg-share ros_ign_gazebo)/launch/ign_gazebo.launch.py">
+	<include file="$(find-pkg-share ros_ign_gazebo)/launch/ign_gazebo.launch.py">
 		<arg name="ign_args" value="$(find-pkg-share maps_gazebo)/worlds/maps.world"/>
-	</include> -->
+	</include>
 
 	<node
 		pkg="ros_ign_gazebo"
@@ -33,7 +33,7 @@
 		>
 	</node>
 
-	<!-- <node
+	<node
 		pkg="ros_ign_bridge"
 		exec="parameter_bridge"
 		name="param_bridge_left_maps_joints"
@@ -49,6 +49,6 @@
 		args="/world/maps/model/right_maps/joint_state@sensor_msgs/msg/JointState]ignition.msgs.Model"
 		output="screen"
 	>
-	</node> -->
+	</node>
 
 </launch>

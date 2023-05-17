@@ -9,7 +9,7 @@
     <arg name="pitch" default="0.0"/>
     <arg name="yaw" default="0.0"/>
 
-	<include file="$(find-pkg-share maps_description)/launch/maps_bringup.launch">
+	<include file="$(find-pkg-share maps_description)/launch/maps_bringup.launch.xml">
         <arg name="name" value="$(var name)"/>
         <arg name="parent" value="$(var parent)"/>
         <arg name="x" value="$(var x)"/>

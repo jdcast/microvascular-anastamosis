@@ -1,9 +1,9 @@
 <launch>
 
-	<include file="$(find-pkg-share maps_description)/launch/maps_bringup.launch">
+	<include file="$(find-pkg-share maps_description)/launch/maps_bringup.launch.xml">
 	</include>
 
-	<include file="$(find-pkg-share maps_description)/launch/maps_bringup.launch">
+	<include file="$(find-pkg-share maps_description)/launch/maps_bringup.launch.xml">
 		<arg name="x" value="0"/>
 		<arg name="y" value="0.040"/>
 		<arg name="yaw" value="3.14159"/>
