@@ -18,14 +18,15 @@ Kuka
   This page is under active development.
 
 
-This package homes the details for the kuka robot used in this project.  To run just the `kuka package` switch to the ``features/kuka`` branch in your workspace using ``git checkout --track origin/features/kuka``.
+This package homes the details for the kuka robot used in this project.  To run just the `kuka package` switch to the ``features/kuka`` branch in your workspace using ``git checkout --track origin/features/kuka``. This package was originally set up to generate the KUKA description, gazebo, and control all together, but the workflow was switched to using the ``iiwa_ros2`` repo. The kuka_description and kuka_gazebo are kept within this package for legacy, but kuka_control is not based on these. Below we provide documentation for all of the packages.
 
 Package Structure
 ------------------
 
 * kuka_control
 
-    (*future work*) will contain the control files for the kuka.
+    * src
+        contains source code for the executables built in this package
 
 * kuka_description
 
@@ -51,12 +52,28 @@ Package Structure
 
         contains world file for gazebo and the rviz config file.
 
-Running the Kuka
+Running the Kuka (using iiwa_ros2 repository)
 ----------------
 
-1. Build the packages ``colcon build``
-2. ``source install/setup.bash``
-3. Launch rviz and gazebo with the kuka ``ros2 launch kuka_gazebo kuka_gazebo.launch.xml``
+We have forked the `iiwa_ros2 <https://github.com/ICube-Robotics/iiwa_ros2.git>`_ repository, made some additions, and created a pull request.
+The original repository only contains support for the IIWA14 robot, with simulation only in Gazebo Classic. The content from the original repository was kept the same, but we made the adddition of supporting the IIWA7 robot, as well as simulation in Ignition Gazebo. Along the way, we have had a lot of difficulties with the integration of ROS2 control into ignition gazebo, and the integration package `gz_ros2_control <https://github.com/ros-controls/gz_ros2_control.git>`_ seems to have some errors. We successfully started the ROS2 controller manager from the Ignition Gazebo environment through the plugin from gz_ros2_control, and also successfully loaded all the controllers. The controller manager exits as a node in ROS, and the relevant controller interfaces are present. However, calling the interfaces does not seem to produce an effect. As a replacement, we are launching the controller manager from the ROS environment and instead of using Gazebo for simulation, we use Rviz for visualization of the robot configuration. To run the package, follow these instructions (these assume starting the IIWA7 robot):
+
+#. Build the packages ``colcon build``. Note that the packages from our forked iiwa_ros2 should also be built at this point.
+#. ``source install/setup.bash``
+#. Bring up the IIWA7 robot (run one of the following)
+    * To launch the Rviz visualization, run ``ros2 launch iiwa_bringup iiwa7.launch.py``
+    * To launch the Ignition Gazebo simulation, run ``ros2 launch iiwa_bringup iiwa_ignition.launch.py``. Note that if you opt for this step, the following commands might not produce a result.
+#. To get the current configuration of the robot, run ``ros2 run kuka_control getJ``. This would print the current joint configuration on the terminal.
+#. To command the robot to a new configuration, run ``ros2 run kuka_control moveJ <j1> <j2> ... <j7>``. Note that this function takes at least seven arguments and will discard the rest.
+
+Running the Kuka (description and gazebo within this package)
+----------------
+
+Again, this is kept for legacy, and does not work with the kuka_control package.
+
+#. Build the packages ``colcon build``
+#. ``source install/setup.bash``
+#. Launch rviz and gazebo with the kuka ``ros2 launch kuka_gazebo kuka_gazebo.launch.xml``
 
 See below for example output.
 
