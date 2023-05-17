@@ -8,14 +8,15 @@ RSP Final Project
 3. `git clone git@github.com:jdcast/rsp-final-project.git`
 4. `vcs import --recursive < rsp-final-project/galactic.repos`
 5. `cd ..`
-6. `rosdep -v install --from-paths src/rsp-final-project/ -y --ignore-src --skip-key="orocos_toolchain orocos_kdl rtt_ros2_services rtt_ros2_sensor_msgs rtt_ros2_std_msgs rtt_ros2_geometry_msgs rtt_ros2_topics rtt_ros2_params rtt_ros2_node rtt_ros2 kdl_typekit reflexxestype2 robot_joint_publisher_gui"`
+6. `rosdep -v install --from-paths src/rsp-final-project/ -y --ignore-src --skip-key="orocos_toolchain orocos_kdl rtt_ros2_services rtt_ros2_sensor_msgs rtt_ros2_std_msgs rtt_ros2_geometry_msgs rtt_ros2_topics rtt_ros2_params rtt_ros2_node rtt_ros2 kdl_typekit reflexxestype2 robot_joint_publisher_gui ign_ros2_control ign_ros2_control_demos"`
 7. `colcon build --packages-select orocos_toolchain`
 8. `source install/setup.bash`
 9. `sudo apt install ros-galactic-moveit-common && sudo apt install ros-galactic-moveit && sudo apt install ros-galactic-moveit-servo`
-10. `colcon build && source install/setup.bash && export COLCON_PREFIX_PATH=/home/nightrider/Documents/JHU/rsp/<workspace_dir>/install && rsp_rtt && echo $COLCON_PREFIX_PATH && echo $RTT_COMPONENT_PATH`
+10. `export IGNITION_VERSION=fortress`
+11. `colcon build && source install/setup.bash && export COLCON_PREFIX_PATH=/home/nightrider/Documents/JHU/rsp/<workspace_dir>/install && rsp_rtt && echo $COLCON_PREFIX_PATH && echo $RTT_COMPONENT_PATH`
     1. NOTE: make sure to replace *<workspace_dir>* with your workspace directory in the paths above
     2. NOTE: *rsp_rtt* should be defined in the `.bashrc` as: `alias rsp_rtt='export RTT_COMPONENT_PATH=$COLCON_PREFIX_PATH/kdl_typekit/lib/orocos:$COLCON_PREFIX_PATH/orocos_toolchain/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_builtin_interfaces/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_geometry_msgs/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_interfaces/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_node/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_params/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_primitives_typekit/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_rclcpp_typekit/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_std_msgs/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_topics/lib/orocos:$COLCON_PREFIX_PATH/rsp_week07/lib/orocos:$COLCON_PREFIX_PATH/rtt_ur_trajectory/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_sensor_msgs/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_services/lib/orocos'`
-11. `ros2 launch robot robot.launch.py`
+12. `ros2 launch robot robot.launch.py`
 
 ## Updating if installed repository before vcs/rosdep 
 1. `rm -rf install/ build/ log/`
