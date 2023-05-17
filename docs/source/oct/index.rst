@@ -77,7 +77,7 @@ The below shows an example output.
 
 NOTE: the OCT in gazebo is very small, so you'll need to zoom in above the "vessel" cylinders to see it.
 
-If the "vessel" is moved along its x-axis in Gazebo, there will be either a set of red or blue laser scans in rviz below the OCT sensor (or both if its centered under the OCT sensor since the cylinders composing the "vessel" overlap some at the middle of the vessel).
+If the "vessel" is moved along its z-axis in Gazebo, there will be either a set of red or blue laser scans in rviz below the OCT sensor (or both if its centered under the OCT sensor since the cylinders composing the "vessel" overlap some at the middle of the vessel).
 The laser scans in rviz are rendered from the data streamed on the `oct_tissue` and `oct_nitinol` ROS topics.
 
 .. list-table:: After: `ros2 launch oct_gazebo oct.launch.xml` 

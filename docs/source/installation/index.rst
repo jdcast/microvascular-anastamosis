@@ -75,6 +75,8 @@ Build everything else
 
   source install/setup.bash
 
+  export COLCON_PREFIX_PATH=<path_to_workspace_dir>/install
+
 Alias to set environment variable
 ---------------------------------
 
