@@ -38,7 +38,7 @@ Clone the git repo.
 
 ::
   
-  git clone  https://github.com/jdcast/rsp-final-project.git
+  git clone https://github.com/jdcast/rsp-final-project.git
 
 Add the required repos and install dependencies.
 
