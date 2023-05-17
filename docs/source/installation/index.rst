@@ -38,17 +38,17 @@ Clone the git repo.
 
 ::
   
-  git clone https://github.com/jdcast/rsp-final-project.git
+  git clone https://github.com/jdcast/microvascular-anastamosis.git 
 
 Add the required repos and install dependencies.
 
 ::
 
-  vcs import --recursive < rsp-final-project/galactic.repos
+  vcs import --recursive < microvascular-anastamosis/galactic.repos
 
   cd ..
 
-  rosdep -v install --from-paths src/rsp-final-project/ -y --ignore-src --skip-key="orocos_toolchain orocos_kdl rtt_ros2_services rtt_ros2_sensor_msgs rtt_ros2_std_msgs rtt_ros2_geometry_msgs rtt_ros2_topics rtt_ros2_params rtt_ros2_node rtt_ros2 kdl_typekit reflexxestype2 robot_joint_publisher_gui"
+  rosdep -v install --from-paths src/microvascular-anastamosis/ -y --ignore-src --skip-key="orocos_toolchain orocos_kdl rtt_ros2_services rtt_ros2_sensor_msgs rtt_ros2_std_msgs rtt_ros2_geometry_msgs rtt_ros2_topics rtt_ros2_params rtt_ros2_node rtt_ros2 kdl_typekit reflexxestype2 robot_joint_publisher_gui"
 
 Build orocos_toolchian
 ----------------------
