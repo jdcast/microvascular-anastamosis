@@ -39,7 +39,9 @@ Welcome to `microvascular-anastamosis's <https://github.com/jdcast/microvascular
    * :ref:`modindex`
    * :ref:`search`
 
-Here we go over the install instructions as well as how to load and run each individual package.
+The purpose of this project was to create ros packages for each component for an automoated microvascular anastamosis process.  This project makes use of a Kuka arm robot on which a suture tool is attached, a MAPs system - which autonomously rotates the blood vessel as required.  We also implemented a simulated OCT scanner using 2 lidar sensors.
+
+In this documentation we go over the install instructions as well as how to load and run each individual package.
 
 For the install instructions click on the `Installation` link on the side.
 
