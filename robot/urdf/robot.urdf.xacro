@@ -3,6 +3,7 @@
   <xacro:include filename="$(find kuka_description)/urdf/iiwa7.xacro"/>
   <xacro:include filename="$(find suture_tool_description)/urdf/endo360.xacro" />
   <xacro:include filename="$(find oct_description)/urdf/oct.xacro" />
+  <xacro:include filename="$(find maps_description)/urdf/maps.xacro" />
   
     <!-- kuka args -->
   <xacro:arg name="kuka_hardware_interface" default="PositionJointInterface"/>
@@ -29,6 +30,27 @@
   <xacro:arg name="oct_offset_yaw" default="0"/>
   <xacro:arg name="oct_tissue_visibility_mask" default="4294967294"/>
   <xacro:arg name="oct_nitinol_visibility_mask" default="4294967293"/>
+
+  <!-- maps args -->
+  <!-- maps left half args -->
+  <xacro:arg name="maps_left_parent" default="world"/>
+  <xacro:arg name="maps_left_name" default="left"/>
+  <xacro:arg name="maps_left_offset_x" default="0.02"/>
+  <xacro:arg name="maps_left_offset_y" default="0.4"/>
+  <xacro:arg name="maps_left_offset_z" default="0.0"/>
+  <xacro:arg name="maps_left_offset_roll" default="0.0"/>
+  <xacro:arg name="maps_left_offset_pitch" default="0.0"/>
+  <xacro:arg name="maps_left_offset_yaw" default="0.0"/>
+  
+  <!-- maps right half args -->
+  <xacro:arg name="maps_right_parent" default="world"/>
+  <xacro:arg name="maps_right_name" default="right"/>
+  <xacro:arg name="maps_right_offset_x" default="-0.02"/>
+  <xacro:arg name="maps_right_offset_y" default="0.4"/>
+  <xacro:arg name="maps_right_offset_z" default="0.0"/>
+  <xacro:arg name="maps_right_offset_roll" default="0.0"/>
+  <xacro:arg name="maps_right_offset_pitch" default="0.0"/>
+  <xacro:arg name="maps_right_offset_yaw" default="3.13"/>
   
   <link name="world"/>
   
@@ -44,5 +66,9 @@
   <xacro:oct parent="$(arg oct_parent)" tissue_visibility_mask="$(arg oct_tissue_visibility_mask)" nitinol_visibility_mask="$(arg oct_nitinol_visibility_mask)">
 		<origin xyz="$(arg oct_offset_x) $(arg oct_offset_y) $(arg oct_offset_z)" rpy="$(arg oct_offset_roll) $(arg oct_offset_pitch) $(arg oct_offset_yaw)"/>
   </xacro:oct>
+
+  <!-- maps -->
+  <xacro:maps name="$(arg maps_left_name)" parent="$(arg maps_left_parent)" offset_x="$(arg maps_left_offset_x)" offset_y="$(arg maps_left_offset_y)" offset_z="$(arg maps_left_offset_z)" offset_roll="$(arg maps_left_offset_roll)" offset_pitch="$(arg maps_left_offset_pitch)" offset_yaw="$(arg maps_left_offset_yaw)"/>
+  <xacro:maps name="$(arg maps_right_name)" parent="$(arg maps_right_parent)" offset_x="$(arg maps_right_offset_x)" offset_y="$(arg maps_right_offset_y)" offset_z="$(arg maps_right_offset_z)" offset_roll="$(arg maps_right_offset_roll)" offset_pitch="$(arg maps_right_offset_pitch)" offset_yaw="$(arg maps_right_offset_yaw)"/>
   
 </robot>

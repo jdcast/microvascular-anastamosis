@@ -10,6 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(oct_gazebo REQUIRED)
 find_package(kuka_gazebo REQUIRED)
 find_package(suture_tool_gazebo REQUIRED)
+find_package(maps_gazebo REQUIRED)
 
 install(DIRECTORY urdf DESTINATION share/${PROJECT_NAME})
 install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})

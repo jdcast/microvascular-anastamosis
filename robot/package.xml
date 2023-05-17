@@ -3,14 +3,15 @@
 <package format="3">
   <name>robot</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="john.d.cast@gmail.com">nightrider</maintainer>
-  <license>TODO: License declaration</license>
+  <description>Launch into gazebo/rviz2 the kuka, oct, maps and suture-tool</description>
+  <maintainer email="john.d.cast@gmail.com">John Dallas Cast</maintainer>
+  <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
   <depend>oct_gazebo</depend>
   <depend>kuka_gazebo</depend>
   <depend>suture_tool_gazebo</depend>
+  <depend>maps_gazebo</depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
