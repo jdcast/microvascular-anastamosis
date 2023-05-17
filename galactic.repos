@@ -1,7 +1,7 @@
 repositories:
-  rsp-final-project:
+  microvascular-anastamosis:
     type: git
-    url: git@github.com:jdcast/rsp-final-project.git
+    url: git@github.com:jdcast/microvascular-anastamosis.git
   orocos_toolchain:
     type: git
     url: https://github.com/orocos-toolchain/orocos_toolchain.git
