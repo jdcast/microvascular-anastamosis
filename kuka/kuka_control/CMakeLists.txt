@@ -7,9 +7,18 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(rclcpp_action REQUIRED)
+find_package(control_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+
+add_executable(moveJ src/moveJ.cpp)
+ament_target_dependencies(moveJ rclcpp rclcpp_action control_msgs sensor_msgs)
+add_executable(getJ src/getJ.cpp)
+ament_target_dependencies(getJ rclcpp sensor_msgs)
+
+install(TARGETS moveJ DESTINATION lib/${PROJECT_NAME})
+install(TARGETS getJ DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
