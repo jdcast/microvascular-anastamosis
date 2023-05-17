@@ -13,7 +13,7 @@ RSP Final Project
 8. `source install/setup.bash`
 9. `sudo apt install ros-galactic-moveit-common && sudo apt install ros-galactic-moveit && sudo apt install ros-galactic-moveit-servo`
 10. `export IGNITION_VERSION=fortress`
-11. `colcon build && source install/setup.bash && export COLCON_PREFIX_PATH=/home/nightrider/Documents/JHU/rsp/<workspace_dir>/install && rsp_rtt && echo $COLCON_PREFIX_PATH && echo $RTT_COMPONENT_PATH`
+11. `colcon build && source install/setup.bash && export COLCON_PREFIX_PATH=<path_to_workspace_dir>/install && rsp_rtt && echo $COLCON_PREFIX_PATH && echo $RTT_COMPONENT_PATH`
     1. NOTE: make sure to replace *<workspace_dir>* with your workspace directory in the paths above
     2. NOTE: *rsp_rtt* should be defined in the `.bashrc` as: `alias rsp_rtt='export RTT_COMPONENT_PATH=$COLCON_PREFIX_PATH/kdl_typekit/lib/orocos:$COLCON_PREFIX_PATH/orocos_toolchain/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_builtin_interfaces/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_geometry_msgs/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_interfaces/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_node/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_params/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_primitives_typekit/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_rclcpp_typekit/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_std_msgs/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_topics/lib/orocos:$COLCON_PREFIX_PATH/rsp_week07/lib/orocos:$COLCON_PREFIX_PATH/rtt_ur_trajectory/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_sensor_msgs/lib/orocos:$COLCON_PREFIX_PATH/rtt_ros2_services/lib/orocos'`
 12. `ros2 launch robot robot.launch.py`
