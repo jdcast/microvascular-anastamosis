@@ -75,6 +75,11 @@ Build everything else
 
   source install/setup.bash
 
+Make sure COLCON_PREFIX_PATH isn't mangled by another ROS2 workspace
+--------------------------------------------------------------------
+
+::
+
   export COLCON_PREFIX_PATH=<path_to_workspace_dir>/install
 
 Alias to set environment variable
