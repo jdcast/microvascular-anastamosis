@@ -67,7 +67,7 @@ Running the Maps System
 
 1. Build the packages ``colcon build``
 2. ``source install/setup.bash``
-3. Launch rviz with the maps system ``ros2 launch maps_gazebo maps_double_gazebo.launch``
+3. Launch rviz with the maps system ``ros2 launch maps_gazebo maps_double_gazebo.launch.xml``
 
 See below for example output.
 
