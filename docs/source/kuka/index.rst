@@ -62,14 +62,14 @@ The original repository only contains support for the IIWA14 robot, with simulat
 #. ``source install/setup.bash``
 #. Bring up the IIWA7 robot (run one of the following)
     * To launch the Rviz visualization, run ``ros2 launch iiwa_bringup iiwa7.launch.py``
-    * To launch the Ignition Gazebo simulation, run ``ros2 launch iiwa_bringup iiwa_ignition.launch.py``. Note that if you opt for this step, the following commands might not produce a result.
+    * To launch the Ignition Gazebo simulation, run ``ros2 launch iiwa_bringup iiwa_ignition.launch.py``. Note that if you opt for this step, the following commands might not produce a result. In addition, we've been having issues with running this on different systems, so if you get an error when launching this, you might want to do a fresh install of the gz_ros2_control repository (galactic branch) and then run ``export IGNITION_VERSION=fortress`` before ``colcon build``.
 #. To get the current configuration of the robot, run ``ros2 run kuka_control getJ``. This would print the current joint configuration on the terminal.
 #. To command the robot to a new configuration, run ``ros2 run kuka_control moveJ <j1> <j2> ... <j7>``. Note that this function takes at least seven arguments and will discard the rest.
 
 Running the Kuka (description and gazebo within this package)
 ----------------
 
-Again, this is kept for legacy, and does not work with the kuka_control package.
+Again, this is kept for legacy, and does not work with the kuka_control package. However, the robot package does depend on it for integration with the suture tool. The robot package will be updated in the future to depend on the iiwa_ros2 packages instead.
 
 #. Build the packages ``colcon build``
 #. ``source install/setup.bash``
