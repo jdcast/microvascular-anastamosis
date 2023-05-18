@@ -17,7 +17,7 @@ Maps
   :alt: gazebo after ros2 launch maps_gazebo maps_doble_gazebo.launch
 
 
-This package homes the details for maps.  To run just the `maps package` switch to the ``features/maps`` branch in your workspace using ``git checkout --track origin/features/maps``.
+This package homes the details for maps.
 
 Package Structure
 ------------------

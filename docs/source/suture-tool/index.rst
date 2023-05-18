@@ -17,7 +17,7 @@ Suture Tool
   :alt: adjusting the tool joints using the joint state publisher
 
 
-This package homes the details for the suturing tool - endo360 for this project.  To run just the `suture-tool package` switch to the ``features/suture-tool`` branch in your workspace using ``git checkout --track origin/features/suture-tool``.
+This package homes the details for the suturing tool - endo360 for this project.
 
 Package Structure
 ------------------
