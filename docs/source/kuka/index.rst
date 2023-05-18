@@ -18,7 +18,7 @@ Kuka
   This page is under active development.
 
 
-This package homes the details for the kuka robot used in this project.  To run just the `kuka package` switch to the ``features/kuka`` branch in your workspace using ``git checkout --track origin/features/kuka``. This package was originally set up to generate the KUKA description, gazebo, and control all together, but the workflow was switched to using the ``iiwa_ros2`` repo. The kuka_description and kuka_gazebo are kept within this package for legacy, but kuka_control is not based on these. Below we provide documentation for all of the packages.
+This package homes the details for the kuka robot used in this project. This package was originally set up to generate the KUKA description, gazebo, and control all together, but the workflow was switched to using the ``iiwa_ros2`` repo. The kuka_description and kuka_gazebo are kept within this package for legacy, but kuka_control is not based on these. Below we provide documentation for all of the packages.
 
 Package Structure
 ------------------

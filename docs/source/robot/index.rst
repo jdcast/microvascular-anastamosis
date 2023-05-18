@@ -4,7 +4,7 @@ Robot
 .. note::
   This page is under active development.
 
-This package homes the details for the complete microvascular-anastamosis system - comprised of the suture tool, kuka, maps and oct systems. To run just this combined system switch to the ``main`` branch in your workspace using ``git checkout --track origin/main``.
+This package homes the details for the complete microvascular-anastamosis system - comprised of the suture tool, kuka, maps and oct systems.
 
 Run Example
 -----------

@@ -13,7 +13,7 @@ OCT
   :alt: rviz after ros2 launch oct_gazebo oct.launch.xml
 
 
-This package homes the details for the OCT system.  This package simulates an OCT imaging system of a blood vessel by using two lidar sensors.  To run just the `oct package` switch to the ``features/oct`` branch in your workspace using ``git checkout --track origin/features/oct``.
+This package homes the details for the OCT system. This package simulates an OCT imaging system of a blood vessel by using two lidar sensors.
 
 Package Structure
 ------------------
