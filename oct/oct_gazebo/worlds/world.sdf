@@ -19,7 +19,7 @@
       <shadows>true</shadows>
     </scene>
     <model name='vessel'>
-      <pose>0 0 -1 0 1.57 0</pose>
+      <pose>-0.0958 0 -1 0 1.57 0</pose>
       <model name='tissue'>
         <pose>0 0 0 0 0 0</pose>
         <link name='cylinder_link'>
