@@ -48,7 +48,7 @@ Add the required repos and install dependencies.
 
   cd ..
 
-  rosdep -v install --from-paths src/microvascular-anastamosis/ -y --ignore-src --skip-key="orocos_toolchain orocos_kdl rtt_ros2_services rtt_ros2_sensor_msgs rtt_ros2_std_msgs rtt_ros2_geometry_msgs rtt_ros2_topics rtt_ros2_params rtt_ros2_node rtt_ros2 kdl_typekit reflexxestype2 robot_joint_publisher_gui"
+  rosdep -v install --from-paths src/microvascular-anastamosis/ -y --ignore-src --skip-key="orocos_toolchain orocos_kdl rtt_ros2_services rtt_ros2_sensor_msgs rtt_ros2_std_msgs rtt_ros2_geometry_msgs rtt_ros2_topics rtt_ros2_params rtt_ros2_node rtt_ros2 kdl_typekit reflexxestype2 robot_joint_publisher_gui ign_ros2_control ign_ros2_control_demos"
 
 Build orocos_toolchian
 ----------------------
@@ -70,6 +70,8 @@ Build everything else
 ---------------------
 
 ::
+
+  export IGNITION_VERSION=fortress
 
   colcon build --executor sequential
 
