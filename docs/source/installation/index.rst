@@ -64,7 +64,7 @@ Install other dependencies
 
 ::
 
-  sudo apt install ros-galactic-moveit-common && sudo apt install ros-galactic-moveit && sudo apt install ros-galactic-moveit-servo
+  sudo apt install ros-galactic-moveit-common && sudo apt install ros-galactic-moveit && sudo apt install ros-galactic-moveit-servo && sudo apt-get install ros-galactic-ros2-control && sudo apt-get install ros-galactic-ign-ros2-control && sudo apt-get install ros-galactic-test-msgs && sudo apt-get install ros-galactic-ros-ign && sudo apt-get install ros-galactic-joint-state-publisher-gui
 
 Build everything else 
 ---------------------
