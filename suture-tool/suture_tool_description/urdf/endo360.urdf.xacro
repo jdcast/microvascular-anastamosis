@@ -3,6 +3,8 @@
   
   <xacro:include filename="$(find suture_tool_description)/urdf/endo360.xacro"/>
   
+  <link name="$(arg parent)"/>
+
   <xacro:suture_tool parent="$(arg parent)" tool_name="endo360"/>  
 
 </robot>

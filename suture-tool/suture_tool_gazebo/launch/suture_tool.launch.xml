@@ -12,11 +12,9 @@
   </include>
 
   <!-- start gazebo -->
-  <!--
   <executable 
   cmd="ign gazebo $(var gz_world) -v 4"
   output="screen"/>
-  -->
 
   <!-- add tool -->
   <node 
@@ -28,7 +26,6 @@
   </node>
   
   <!-- start bridge for joint state -->
-
   <node
     pkg="ros_ign_bridge"
     exec="parameter_bridge"
@@ -38,21 +35,19 @@
   </node>
 
   <!-- start bridge for cmd_vel -->
-  <!--<node
+  <node
   pkg="ros_ign_bridge"
   exec="parameter_bridge"
   args="/model/robot/cmd_vel@geometry_msgs/msg/Twist@ignition.msgs.Twist"
   output="screen">
   <remap from="/model/robot/cmd_vel" to="/cmd_vel"/>
-  </node>-->
+  </node>
 
   <!-- start rviz -->
-  <!--
   <node
     pkg="rviz2"
     exec="rviz2"
-    args="-d $(find-pkg-share suture_tool_gazebo)/config/rviz_config.rviz">
+    args="-d $(find-pkg-share suture_tool_gazebo)/config/rviz_config.rviz -f world">
   </node>
-  -->
  
 </launch>
