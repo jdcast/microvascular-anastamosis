@@ -25,7 +25,7 @@ repositories:
   iiwa_ros2:
     type: git
     url: https://github.com/jdcast/iiwa_ros2.git
-    version: galactic
+    version: iiwa_ignition
   ros2_img_to_bag_py:
     type: git
     url: https://github.com/jdcast/ros2_img_to_bag_py.git
