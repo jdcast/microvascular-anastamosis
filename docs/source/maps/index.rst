@@ -54,9 +54,9 @@ Package Structure
 
         contains the launch file to start gazebo and rviz, adding the maps system.
 
-        `maps_double_gazebo.launch`: launches the full maps system.
+        `maps_double_gazebo.launch.xml`: launches the full maps system.
 
-        `maps_single_gazebo.launch`: launches half the maps system.
+        `maps_single_gazebo.launch.xml`: launches half the maps system.
 
     * worlds
 
@@ -71,11 +71,11 @@ Running the Maps System
 
 See below for example output.
 
-Rviz window after: `ros2 launch maps_gazebo maps_double_gazebo.launch` 
+Rviz window after: `ros2 launch maps_gazebo maps_double_gazebo.launch.xml` 
 
 |maps_rviz.png|
 
-Gazebo window after: `ros2 launch maps_gazebo maps_double_gazebo.launch` 
+Gazebo window after: `ros2 launch maps_gazebo maps_double_gazebo.launch.xml` 
 
 |maps_gazebo.png|
 

@@ -59,11 +59,11 @@ Running the Suture Tool
 
 1. Build the packages ``colcon build``
 2. ``source install/setup.bash``
-3. Launch rviz and gazebo with the suture tool ``ros2 launch suture_tool_gazebo suture_tool.launch``
+3. Launch rviz and gazebo with the suture tool ``ros2 launch suture_tool_gazebo suture_tool.launch.xml``
 
 See below for example output.
 
-.. list-table:: After: `ros2 launch suture_tool_gazebo suture_tool.launch` 
+.. list-table:: After: `ros2 launch suture_tool_gazebo suture_tool.launch.xml` 
    :widths: 50 50
    :header-rows: 1
 
