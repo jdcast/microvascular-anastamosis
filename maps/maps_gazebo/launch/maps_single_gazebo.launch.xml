@@ -20,9 +20,9 @@
         <arg name="yaw" value="$(var yaw)"/>
 	</include>
 
-	<!-- <include file="$(find-pkg-share ros_ign_gazebo)/launch/ign_gazebo.launch.py">
+	<include file="$(find-pkg-share ros_ign_gazebo)/launch/ign_gazebo.launch.py">
 		<arg name="ign_args" value="$(find-pkg-share maps_gazebo)/worlds/maps.world"/>
-	</include> -->
+	</include>
 
 	<node
 		pkg="ros_ign_gazebo"
